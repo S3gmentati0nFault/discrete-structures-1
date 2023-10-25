@@ -1,4 +1,4 @@
-\section{ex1}
+\section*{Exercise 1}
 \boldmath
 \textbf{A graph is \textit{connected} if, for any vertices $u, v \in V(G), G$ contains a $u - v$ path.\\
 Prove that a graph or its complement is connected, possibly both.}\vspace{10pt}\\
@@ -8,13 +8,13 @@ To solve the exercise we will just provide two different proofs, the first one i
 \textbf{$G$ disconnected $\implies$ $G'$ connected}\vspace{5pt}\\
 \unboldmath
 If we make the assumption that the graph $G$ is disconnected, then $G$ contains at least two connected components.\\
-If we now build the complementary graph to $G$, $G'$, we will have an arc $\forall v, u : v \in V(A) \land u \in V(B)$; where $A$ and $B$ are actually the two connected components we were talking about earlier.\\
-Since we are saying that we will have an arc between any two pairs of vertices in $V(G)$ then we are saying that $G'$ is actually connected (the most basic form of connection because we have an actual edge between every single pair).
+If we now build the complementary graph to $G$, $G'$, we will have an edge $\forall v, u : v \in V(A) \land u \in V(B)$; where $A$ and $B$ are actually the two connected components we were talking about earlier.\\
+Since we are saying that we will have an edge between any two pairs of vertices in $V(G)$ then we are saying that $G'$ is actually connected (the most basic form of connection because we have an actual edge between every single pair).
 \vspace{2pt}\\\hspace*{3cm}$\square$\vspace*{10pt}\\
 \boldmath
 \textbf{$G$ connected $\implies G'$ connected $\vee\hspace{3pt} G'$ disconnected}\vspace{5pt}\\
 \unboldmath
-To prove this second point we will use a couple of drawings\\
+To prove this second point we will use counterexamples. \\
 \begin{center}
     \begin{tikzpicture}
     \tikzset{% This is the style settings for nodes
@@ -92,4 +92,4 @@ In the case above we start with a connected graph and we get a disconnected comp
     \draw[c1] (n4) edge node[above] {} (n5);
 \end{tikzpicture}  
 \end{center}
-It's perfectly clear that, while the starting graph is connected, the complementary is still connected itself.
+It is perfectly clear that, while the starting graph is connected, the complementary is still connected itself.
