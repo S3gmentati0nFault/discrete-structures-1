@@ -105,7 +105,7 @@ This results in the graph $G$, where $|V| = 10$ and $|E| = 30$ : \\
     \item \textbf{Show that $J(n, k)$ and $J(n, n-k)$ are isomorphic for any $0 \leq k \leq n.$} \\ 
     \linebreak 
     \unboldmath
-    We know that $\binom{n}{k} = \binom{n}{n-k}$ as so $|V|$ will be equal for both. Then, to show the graphs are isomorphic, we must find the isomorphism $\phi$ that preserves the structure of the graph. An isomorphism is just a one to one mapping between two sets. Any binary relation defined on the set is preserved through the isomorphism\footnote{\href{https://www.britannica.com/science/isomorphism-mathematics}{https://www.britannica.com/science/isomorphism-mathematics}}.\\
+    We know that $\binom{n}{k} = \binom{n}{n-k}$ as so $|V|$ will be equal for both. Then, to show the graphs are isomorphic, we must find the isomorphism $\phi$ that preserves the structure of the graph. An isomorphism is just a one to one mapping between two sets. Any binary relation defined on the set is preserved through the isomorphism.\\
     \linebreak 
     Let $G_1$ be the graph $J(n,k)$ and $G_2$ the graph $J(n, n-k)$. We know that $\forall v \in V(G_1) \:\: \exists w \in V(G_2) \:\: s.t.\:\: v \cup w = [n]$  and so the bijective mapping is as follows: \\
     \linebreak 
@@ -135,5 +135,4 @@ As we have $\binom{n}{k}$ vertices, and this expression holds for all vertices, 
 Left to find are the diameter and girth of a Johnson graph. The diameter is colloquially defined as the 'longest shortest' path, i.e. given the set of all distances of all shortest paths between any vertices $u, v \in V(G)$ the diameter is the maximum of all distances. We have again found empirically that the diameter is = $k$ for any graph $J(n, k)$ where $0 \leq k \leq n$. \\
 \linebreak 
 Finally, the girth of the graph, which is the length of the shortest cycle = 3 (assuming that we have more than 3 vertices). This is the case as the set intersection property is transitive, i.e. for any three vertices $v_1, v_2$ and $v_3$, if $\exists$ edge $v1v2$ and $\exists$ edge $v2v3$, by transitivity there must exist an edge $v1v3$, and so there is a cycle of length 3.
-
 \end{enumerate}
