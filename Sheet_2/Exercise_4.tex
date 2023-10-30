@@ -1,0 +1,23 @@
+\subsection*{Exercise 4}
+\boldmath
+\textbf{Show that every tree $T$ has at least $\Delta(T)$ leaves.}\\
+\unboldmath
+\linebreak
+\textbf{Proof}\\
+Let's consider a generic tree $T$, let's call $\bar{x}$ the vertex with maximum degree $\Delta(T)$.\\
+\linebreak
+\textbf{Claim 1}\\
+For any tree $T$, given a vertex, it is either a leaf itself or there is a path that links it to one.\\
+\linebreak
+\textbf{Proof}\\
+Let's suppose that some vertices are not linked to leaves.\\
+Because of theorem 1.15 it's impossible because the following have to hold:
+\begin{itemize}
+    \item There must be a unique path between any two nodes $u$ and $v$
+    \item The tree $T$ is minimally connected
+\end{itemize}
+If some of the vertices are not linked to the leaves then there are missing arcs inside the tree that would make it disconnected and thus not a tree. Which is a contradiction because $T$ is actually a tree.\\
+\linebreak
+Getting back to the main proof, if we consider the sons of $\bar{x}$, each one of them must be a leaf himself or be connected to a leaf because of \textbf{Claim 1}. It's important to note that each son is linked to its own unique leaf. If that weren't true we would have two different paths getting to the same leaf, and that would mean that we would have a cycle, thus making $T$ not a tree.\\
+Thus for every son of $\bar{x}$ we have at least one corresponding leaf $\implies$ the number of leaves in a tree is at least $\Delta(T)$\\
+\vspace{5pt}\hspace{2cm}$\square$

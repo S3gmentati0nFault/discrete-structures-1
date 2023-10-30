@@ -1,0 +1,37 @@
+\section*{Sheet 2}
+\subsection*{Exercise 1}
+\boldmath
+\textbf{Let $G$ be a graph.}
+\begin{enumerate}[a)]
+    \item \textbf{Prove or disprove: If $u$ and $v$ are the only vertices of odd degree in $G$, then $G$ contains a $u–v$ path.} 
+    \unboldmath
+    \\
+    \linebreak 
+    %It should be noted that a cycle is also a path, with the extra condition that for a path $uPv, u=v$ the case that $u = v$, this does not hold.
+    %\boldmath
+    To prove this we can use the handshaking lemma: "The number of vertices of odd degree in a graph is always even." (from \textit{Graph Theory} by Reinhardt Diestel, page 5)\\
+    \linebreak 
+    In the case that $G$ is connected, the statement holds trivially as by definition, $\exists$ a $uv$ path. Hence, we will take a disconnected graph $G$. \\
+    \linebreak 
+    As the graph is disconnected, $\exists $ at least 2 components of the graph that are not connected. We can use a proof by contradiction to show that $u$ and $v$ must be in the same component, and so $\exists$ a $uv$ path. \\
+    \linebreak
+    Take $G_1$ and $G_2$ to be two connected components of $G$, where $u \in V(G_1)$ and $v \in V(G_2)$. By the statement, there are no other vertices of odd degree, and so at present both $G_1$ and $G_2$ currently have exactly 1 vertex of odd degree each. \\
+    \linebreak 
+    As $G_1$ and $G_2$ are graphs in their own right, the handshaking lemma must hold. As $G_1$ and $G_2$ currently both have an odd number of odd degree vertices, the handshaking lemma does not hold, and so we have a contradiction. \\
+    \linebreak 
+    By this contradiction, $u$ and $v$ must both be in the same component, i.e. $u, v \in V(G_1)$ or $u, v \in V(G_2)$ and so by definition $\exists$ a $uv$ path. \hspace{10mm} $\square$ \\
+    \linebreak 
+    %By the handshaking lemma, this is not possible, as the 
+    \boldmath
+    \item \textbf{Let $uv \in E(G)$. Prove that $uv$ belongs to at least $d(u)+d(v)-n(G)$ triangles in $G$. (A triangle is a cycle of length 3.)} 
+    \unboldmath
+    \\
+    \linebreak 
+    We can prove the statement by induction on the number of vertices in $G$, i.e. $n(G)$. Let $t(G, uv)$ denote the number of triangles in $G$ that $uv$ belong to. \\
+    \linebreak 
+    Case 1: $n(G) = 2$: $G$ contains only vertices $u$ and $v$ meaning $d(u) = d(v) = 1$. So, $t(G, uv) = 1 + 1 - 2 = 0$, which must hold as by definition there are too few vertices to form a cycle of length 3 (or any cycle for that matter). \\
+    \linebreak 
+    Case 2: $n(G) \geq 3$. Inductive hypothesis: for any graph $G$ \\
+    \linebreak 
+    %For a graph $G$, we know that 
+\end{enumerate}

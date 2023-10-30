@@ -1,0 +1,12 @@
+\subsection*{Exercise 3 }
+\textbf{Show that any 2-connected graph contains a cycle.} \\
+\linebreak
+In order for a graph $G$ to be $k-$connected, it must have at least $k+1$ vertices, i.e. $|V(G)| \geq k+1$. So, $V|G| \geq 3$. \\
+\linebreak
+As $G$ is connected on with $|V(G)| \geq 3$ vertices, $\exists$ at least one vertex $v$ s.t. $d(v) \geq 2$. Let the neighbourhoud $N(v)$ contain vertices $u$ and $w$. \\
+\linebreak 
+As $G$ is connected, $\exists$ a path $uPw = \{uv, vw\}$. We also know that as $G$ is 2-connected, we can remove either $uv$ or $vw$ without disconnecting the graph. \\
+\linebreak 
+So, $\exists$ some path $uP'w$ that does not contain $uv$ or $vw$. \\
+\linebreak 
+As $uPw$ and $uP'w$ are disjoint, we know $\exists$ a cycle $C = uPw \cup uP'w. \hspace{10mm} \square$
