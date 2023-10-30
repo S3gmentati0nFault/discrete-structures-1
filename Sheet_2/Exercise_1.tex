@@ -1,5 +1,4 @@
-\section*{Sheet 2}
-\subsection*{Exercise 1}
+\section*{Exercise 1}
 \boldmath
 \textbf{Let $G$ be a graph.}
 \begin{enumerate}[a)]
@@ -27,11 +26,17 @@
     \unboldmath
     \\
     \linebreak 
-    We can prove the statement by induction on the number of vertices in $G$, i.e. $n(G)$. Let $t(G, uv)$ denote the number of triangles in $G$ that $uv$ belong to. \\
+    We can prove the statement by induction on the number of vertices in $G$, i.e. $n(G)$. Let $t(G, uv)$ denote the number of triangles in $G$ that $uv$ belongs to. \\
     \linebreak 
     Case 1: $n(G) = 2$: $G$ contains only vertices $u$ and $v$ meaning $d(u) = d(v) = 1$. So, $t(G, uv) = 1 + 1 - 2 = 0$, which must hold as by definition there are too few vertices to form a cycle of length 3 (or any cycle for that matter). \\
     \linebreak 
-    Case 2: $n(G) \geq 3$. Inductive hypothesis: for any graph $G$ \\
-    \linebreak 
-    %For a graph $G$, we know that 
+    Case 2: $n(G) \geq 3$. Inductive hypothesis: for any graph with $n(G)$ nodes the number of triangles sharing the $uv$ edge is at least $d(u)+d(v)-n(G)$\\
+    \linebreak
+    In the generic case, if we suppose to add another vertex, we shall call it $w$ to $V(G)$ we can observe three different behaviours:
+    \begin{itemize}
+        \item $w$ is not linked to $u$ or $v$. If there is no path $P$ such that $wPx$ for any $x \in \{u, v\}$ then adding $w$ will just result in an increase in the number of total vertices\footnote{In some cases the number of vertices is greater than the sum of the degrees and thus the result of $d(u)+d(v)-n(G)$ is negative, but since it's a lower bound this poses no problem} which decreases the lower bound, and thus the property trivially holds even in the case $n(G) + 1$
+        \item $w$ is linked to either $u$ or $v$ (not both). In this case we will have an increase in the amount of vertices inside the network, the increase of one of the degrees (either $d(v)$ or $d(u)$) will actually make it so that the lower bound remains the same. Thus the conclusion is the same as above.
+        \item $w$ is linked to both $u$ and $v$. In this case the sum of the degrees will increase by two, but $n(G)$ increases by one, thus increasing $d(u)+d(v)-n(G)$ by just 1 (we are actually adding a triangle built on $uv$). Thus the property will still hold.
+    \end{itemize}
+    Since we can only fall in one of the three cases above we can say that if the property holds for $n(G)$ then it will still hold for any value greater than $n(G)$. We have thus proven by induction that the number of triangles in a graph sharing a certain edge $uv$ is at least $d(u)+d(v)-n(G)$ \hspace{10mm} $\square$ \\
 \end{enumerate}
