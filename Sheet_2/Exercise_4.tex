@@ -15,7 +15,8 @@ If any of the above doesn't hold for any reason then we can't say that $T$ is a 
 \linebreak 
 Therefore, we know that $\exists$ a path to as many leaves as there are neighbours $\in N_T(v)$. If that weren't true that would mean that one of the leaves in the tree is disconnected from $v$ and thus $T$ would not be a tree. We must finally show that each neighbour that is not a leaf has a path to a \textit{unique} leaf. \\
 \linebreak 
-We can prove this easily using a contradiction. Assume that for two vertices, $u, w \in N_T(v)$, there exists a path to the same vertex leaf $x$. As $x$ is a leaf, it has degree 1.
+We can prove this easily using a contradiction. Assume that for two vertices, $u, w \in N_T(v)$,
+there exists a path to the same vertex leaf $x$. As $x$ is a leaf, it has degree 1.\\
 \linebreak 
 So, the two paths $uPx$ and $wPx$ exist. We also know the following path exists: $uPw$, as $u$ and $w$ are neighbours of $v$. The concatenation of these paths, $uPw \cup wPx \cup xPu$ forms a cycle, as it starts and ends at the same vertex, which cannot hold as trees are by definition acylic.  \\
 \linebreak 
