@@ -1,11 +1,11 @@
-\subsection*{Exercise 2 }
+\section*{Exercise 2}
 \boldmath
 \textbf{Let $G$ be a graph with at least two vertices. Prove that G has at least two vertices of the same degree.} \\
 \linebreak 
 \unboldmath
-We can prove this statement using a contradiction. Assume that $G$ has no vertices of the same degree, i.e. all degrees are distinct. Note that the degree of a vertex can be any natural number including 0, i.e. $d(v) \in \mathbb{N}_0 \:\: \forall v \in V(G)$\\
+We can prove this statement using a contradiction. Assume that $G$ has no vertices of the same degree, i.e. all degrees are distinct. Note that the degree of a vertex can be any natural number including 0, i.e. $d(v) \in \mathbb{N}_0 \:\: \forall v \in V(G)$. \\
 \linebreak 
-Take a graph $G$ with $n$ vertices. In order for there to be $n$ distinct degrees, there must be a set of length $n$ where each value $\in \mathbb{N}_0$. We know that the highest degree vertex has degree $n-1$ (as it cannot be adjacent to itself). In order then, for the set to have length $n$, the set must start at 0.  \\
+Take a graph $G$ with $n$ vertices. In order for there to be $n$ distinct degrees, there must be a set of length $n$ describing the degrees of all vertices in the graph where each value $\in \mathbb{N}_0$. We know that the highest degree vertex has degree $n-1$ (as it cannot be adjacent to itself). In order then, for the set to have length $n$, the set must start at 0.  \\
 \linebreak 
 So, the degrees can be described in the set $\{0, 1, ..., n-1\}$ where the $ith$ vertex has degree $i$. This can be interpreted as follows: \\
 \linebreak 
@@ -14,4 +14,5 @@ Vertex $n$ has degree $n-1$ (it is adjacent to all vertices except itself), vert
 The final vertex, vertex $n-n$, therefore has degree $n-n = 0$. However, it is a contradiction that there should be a vertex $n$ that is adjacent to \textit{all} vertices, as well as vertex that has no adjacent vertices (i.e. degree of 0). \\
 \linebreak 
 Therefore, we know that it cannot be that all vertices have a distinct degree, and so there must be at least two vertices of the same degree. \hspace*{10mm} $\square$\\
+
 

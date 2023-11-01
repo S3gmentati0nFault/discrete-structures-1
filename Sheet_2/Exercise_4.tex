@@ -1,23 +1,22 @@
-\subsection*{Exercise 4}
+\section*{Exercise 4}
 \boldmath
 \textbf{Show that every tree $T$ has at least $\Delta(T)$ leaves.}\\
 \unboldmath
 \linebreak
-\textbf{Proof}\\
-Let's consider a generic tree $T$, let's call $\bar{x}$ the vertex with maximum degree $\Delta(T)$.\\
-\linebreak
-\textbf{Claim 1}\\
-For any tree $T$, given a vertex, it is either a leaf itself or there is a path that links it to one.\\
-\linebreak
-\textbf{Proof}\\
-Let's suppose that some vertices are not linked to leaves.\\
-Because of theorem 1.15 it's impossible because the following have to hold:
+Let's consider a generic tree $T$ with a vertex $v$ of maximum degree $\Delta T$, i.e. $d(v) = \Delta(T)$. \\
+\linebreak 
+We know that $\forall v \in V(T)$, $v$ is either a leaf vertex, or there exists a path to a leaf. We know this holds because of theorem 1.15:
 \begin{itemize}
-    \item There must be a unique path between any two nodes $u$ and $v$
-    \item The tree $T$ is minimally connected
+       \item There must be a (unique) path between any two nodes $u$ and $v$
+       \item The tree $T$ is minimally connected
 \end{itemize}
-If some of the vertices are not linked to the leaves then there are missing arcs inside the tree that would make it disconnected and thus not a tree. Which is a contradiction because $T$ is actually a tree.\\
-\linebreak
-Getting back to the main proof, if we consider the sons of $\bar{x}$, each one of them must be a leaf himself or be connected to a leaf because of \textbf{Claim 1}. It's important to note that each son is linked to its own unique leaf. If that weren't true we would have two different paths getting to the same leaf, and that would mean that we would have a cycle, thus making $T$ not a tree.\\
-Thus for every son of $\bar{x}$ we have at least one corresponding leaf $\implies$ the number of leaves in a tree is at least $\Delta(T)$\\
-\vspace{5pt}\hspace{2cm}$\square$
+If any of the above doesn't hold for any reason then we can't say that $T$ is a tree. 
+\\
+\linebreak 
+Therefore, we know that $\exists$ a path to as many leaves as there are neighbours $\in N_T(v)$. If that weren't true that would mean that one of the leaves in the tree is disconnected from $v$ and thus $T$ would not be a tree. We must finally show that each neighbour that is not a leaf has a path to a \textit{unique} leaf. \\
+\linebreak 
+We can prove this easily using a contradiction. Assume that for two vertices, $u, w \in N_T(v)$, there exists a path to the same vertex leaf $x$. As $x$ is a leaf, it has degree 1.
+\linebreak 
+So, the two paths $uPx$ and $wPx$ exist. We also know the following path exists: $uPw$, as $u$ and $w$ are neighbours of $v$. The concatenation of these paths, $uPw \cup wPx \cup xPu$ forms a cycle, as it starts and ends at the same vertex, which cannot hold as trees are by definition acylic.  \\
+\linebreak 
+By this contradiction, we know that any vertex is linked to as many unique leaves as the size of its neighbourhood. Therefore, any tree $T$ has at least $|N_T(v)| = d(v) = \Delta(T)$ leaves. $\hspace{10mm} \square$ 

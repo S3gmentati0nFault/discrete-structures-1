@@ -8,7 +8,7 @@
     \linebreak 
     %It should be noted that a cycle is also a path, with the extra condition that for a path $uPv, u=v$ the case that $u = v$, this does not hold.
     %\boldmath
-    To prove this we can use the handshaking lemma: "The number of vertices of odd degree in a graph is always even." (from \textit{Graph Theory} by Reinhardt Diestel, page 5)\\
+    To prove this we can use the handshaking lemma: ‘The number of vertices of odd degree in a graph is always even.’ (from \textit{Graph Theory} by Reinhardt Diestel, page 5)\\
     \linebreak 
     In the case that $G$ is connected, the statement holds trivially as by definition, $\exists$ a $uv$ path. Hence, we will take a disconnected graph $G$. \\
     \linebreak 
@@ -18,7 +18,7 @@
     \linebreak 
     As $G_1$ and $G_2$ are graphs in their own right, the handshaking lemma must hold. As $G_1$ and $G_2$ currently both have an odd number of odd degree vertices, the handshaking lemma does not hold, and so we have a contradiction. \\
     \linebreak 
-    By this contradiction, $u$ and $v$ must both be in the same component, i.e. $u, v \in V(G_1)$ or $u, v \in V(G_2)$ and so by definition $\exists$ a $uv$ path. \hspace{10mm} $\square$ \\
+    By this contradiction, $u$ and $v$ must both be in the same component, i.e. $u, v \in V(G_1)$ or $u, v \in V(G_2)$ and so by definition $\exists$ a $uv$ path. Hence, for a graph containing vertices $u$ and $v$ as the only two vertices of odd degree, there must exist a $uv$ path. $\hspace{10mm} \square$ \\
     \linebreak 
     %By the handshaking lemma, this is not possible, as the 
     \boldmath
@@ -26,17 +26,20 @@
     \unboldmath
     \\
     \linebreak 
-    We can prove the statement by induction on the number of vertices in $G$, i.e. $n(G)$. Let $t(G, uv)$ denote the number of triangles in $G$ that $uv$ belongs to. \\
+    We can prove the statement by induction on the number of vertices in $G$, i.e. $n(G)$. \\
+    %Let $t(G, uv)$ denote the number of triangles in $G$ that $uv$ belongs to. \\
     \linebreak 
-    Case 1: $n(G) = 2$: $G$ contains only vertices $u$ and $v$ meaning $d(u) = d(v) = 1$. So, $t(G, uv) = 1 + 1 - 2 = 0$, which must hold as by definition there are too few vertices to form a cycle of length 3 (or any cycle for that matter). \\
+    Case 1: $n(G) = 2$: $G$ contains only vertices $u$ and $v$ as well as edge $uv$, meaning $d(u) = d(v) = 1$. So, $d(u)+d(v)-n(G) = 1 + 1 - 2 = 0$, which must hold as by definition there are too few vertices to form a cycle of length 3 (or any cycle for that matter). \\
     \linebreak 
-    Case 2: $n(G) \geq 3$. Inductive hypothesis: for any graph with $n(G)$ nodes the number of triangles sharing the $uv$ edge is at least $d(u)+d(v)-n(G)$\\
+    Case 2: $n(G) \geq 3$. Inductive hypothesis: for any graph $G = (V,E)$ with $n(G)$ vertices and an edge $uv \in E(G)$, it holds that the number of triangles sharing the $uv$ edge is $ \geq d(u)+d(v)-n(G)$. \\
     \linebreak
-    In the generic case, if we suppose to add another vertex, we shall call it $w$ to $V(G)$ we can observe three different behaviours:
-    \begin{itemize}
-        \item $w$ is not linked to $u$ or $v$. If there is no path $P$ such that $wPx$ for any $x \in \{u, v\}$ then adding $w$ will just result in an increase in the number of total vertices\footnote{In some cases the number of vertices is greater than the sum of the degrees and thus the result of $d(u)+d(v)-n(G)$ is negative, but since it's a lower bound this poses no problem} which decreases the lower bound, and thus the property trivially holds even in the case $n(G) + 1$
-        \item $w$ is linked to either $u$ or $v$ (not both). In this case we will have an increase in the amount of vertices inside the network, the increase of one of the degrees (either $d(v)$ or $d(u)$) will actually make it so that the lower bound remains the same. Thus the conclusion is the same as above.
-        \item $w$ is linked to both $u$ and $v$. In this case the sum of the degrees will increase by two, but $n(G)$ increases by one, thus increasing $d(u)+d(v)-n(G)$ by just 1 (we are actually adding a triangle built on $uv$). Thus the property will still hold.
-    \end{itemize}
-    Since we can only fall in one of the three cases above we can say that if the property holds for $n(G)$ then it will still hold for any value greater than $n(G)$. We have thus proven by induction that the number of triangles in a graph sharing a certain edge $uv$ is at least $d(u)+d(v)-n(G)$ \hspace{10mm} $\square$ \\
+    We must now show that the theorem still holds when any number of edges and vertices are added, i.e. the inductive hypothesis holds for any value of $n(G)$ and $e(G)$. \\
+    \linebreak 
+    When adding a vertex $w$ to the graph $G$ we can observe exactly one of three different behaviours:
+    \begin{enumerate}
+        \item $w$ is not adjacent to $u$ or $v$, i.e. $w \notin N_G(u) \wedge w \notin N_G(v)$. This means $d(u)$ and $d(v)$ remain the same while $|V(G)|$ increases by $1$, thus decreasing $d(u)+d(v)-n(G)$ by $1$. This means the statement will still hold, as it is impossible for new triangles to have been formed which include the edge $uv$. Note that it is possible that the number of vertices is greater than $d(u)+d(v)$ and thus the result of $d(u)+d(v)-n(G)$ is negative, but since this is a lower bound this poses no problem. 
+        \item $w$ is adjacent to either $u$ or $v$, i.e. $w \in N_G(u) \vee w \in N_G(v)$. This means $|V(G)|$ increases by $1$ and either $d(v)$ or $d(u)$ is increased by one. This means $ d(u)+d(v)-n(G)$ is not changed, which holds true because, as in the case above, it is not possible for any triangles including edge $uv$ to have been added. 
+        \item $w$ is adjacent to both $v$ or $w$, i.e. $w \in N_G(u) \wedge w \in N_G(v)$. This means both $d(u)$, $d(v)$ and $n(G)$ increased by $1$, thus $d(u)+d(v)-n(G)$ increases overall by $1$. Hence, a new triangle has been added, which makes sense given we now have edges $uw$, $wv$ and $vu$ and so we have a (new) $u-w-v-u$ path of exactly length 3, which is the definition of triangle.  
+    \end{enumerate}
+    In conclusion, in any of the three possible cases, the theorem holds, meaning that for a graph $G = (V,E)$ and an edge $uv \in E(G)$, it holds that $uv$ belongs to at least $d(u)+d(v)-n(G)$ triangles. \hspace{10mm}$\square$
 \end{enumerate}
