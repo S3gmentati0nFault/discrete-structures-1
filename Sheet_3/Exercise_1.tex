@@ -1,0 +1,38 @@
+\section*{Sheet 3}
+\subsection*{Exercise 1}
+\boldmath 
+\textbf{Let $G$ be a graph on $n \geq 3$ vertices with $\delta(G) \geq \frac{n}{2}$. Show that $G$ is
+$2$-connected.}
+\unboldmath\\
+\linebreak
+\textbf{Proof}\\
+We want to prove what's above by contradiction, let's suppose that $\delta(G) \geq \frac{n}{2}$ does
+not imply is $2$-connectedness.\\
+Thus we want to say that:
+\begin{itemize}
+    \item At least three nodes.
+    \item Removing a vertex does not compromise connectivity for the graph.
+\end{itemize}
+Since the graph is not $2$-connected removing a vertex actually compromises connectivity, thus
+whenever we remove a vertex from $V(G)$ we get two different components that we'll call $A$ and
+$B$.\\
+\linebreak
+Both components must have $\delta(X) = \floor{\frac{n - 1}{2}}$, where $X$ is the generic component.
+That means that in both components there has to be a vertex $v$ such that its degree $d_X(v) =
+\floor{\frac{n - 1}{2}}$.
+Let's suppose that the above statement was not true and, without loss of generality, let's suppose
+that $A$ has $\delta(A) > \floor{\frac{n - 1}{2}}$. Then $\delta(B) < \floor{\frac{n - 1}{2}} <
+\frac{n}{2}$ and that would be against the hypothesis.\\
+\linebreak
+To conclude, since both $A$ and $B$ have a vertex ($v \in V(A) \land u \in V(B)$) that should be connected to at least
+$\floor{\frac{n - 1}{2}}$ other vertices, and $N(v) \cap N(u) = \emptyset$ then we can say that
+\begin{equation}
+    |N(v)| |N(u)| = n(G)
+\end{equation}
+thus
+\begin{equation*}
+    \floor{\frac{n - 1}{2}} + \floor{\frac{n - 1}{2}} + 2 = n + 1
+\end{equation*}
+And that is a contradiction because in the vertex there are $n$ vertices.\\
+This proves that in a graph with at least three vertices and a $\delta(G) \geq \frac{n}{2}$, the
+graph mus be 2-connected. \hspace{10mm} $\square$

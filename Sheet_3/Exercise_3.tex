@@ -1,0 +1,33 @@
+\subsection*{Exercise 3}
+\boldmath 
+\textbf{Let $T$ be a tree with no vertex of degree $2$ and $n(T) \geq 2$. Show that $T$ has more leaves than
+other vertices.}
+\unboldmath 
+\\ 
+\linebreak 
+\textbf{Proof}
+We will prove the hypothesis via induction over the subtrees in $T$. The idea is the following.\\ 
+\linebreak 
+We will call the set of the leaves of the tree $V_l(T)$ and the set of internal nodes in the tree as
+$V_i(T)$.\\ 
+\linebreak 
+In the base case we just have the root with a set of sons that is of at least three vertices, the
+property trivially holds.\\
+\linebreak
+The more interesting case is the recursive one, in which I have a tree of a generic dimension, for
+which I suppose that $|V_l(T)| > |V_i(T)|$ holds.\\
+If I add a subtree to my current tree, whatever the number of sons, I will just be turning one of
+the leaves in the root of the subtree and I will be attatching to it $k$ sons. This can be
+translated into the following
+\begin{equation}
+    |V_l(T)| + k > |V_i(T)| + 1
+\end{equation}
+If the above weren't true we would be having the following
+\begin{itemize}
+    \item $k = 1$, which would invalidate the fact that any vertex in the tree must have more than two
+    sons.
+    \item $|V_l(T)| = |V_i(T)|$, which would invalidate our inductive hypothesis.
+\end{itemize}
+Thus in the end we have that $|V_l(T)| + k > |V_i(T)| + 1$ and thus our property still holds, thus
+we have proven that the number of leaves is always greater than the number of internal vertices for
+the tree. \hspace{10mm} $\square$
