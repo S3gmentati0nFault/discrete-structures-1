@@ -6,12 +6,12 @@ $2$-connected.}
 \unboldmath\\
 \linebreak
 \textbf{Proof}\\
-We want to prove what's above by contradiction, let's suppose that $\delta(G) \geq \frac{n}{2}$ does
-not imply is $2$-connectedness.\\
-Thus we want to say that:
+We want to prove the above by contradiction, let's suppose that $\delta(G) \geq \frac{n}{2}$ does
+not imply is $2$-connectivity.\\
+$2$-connectivity would imply the following:
 \begin{itemize}
-    \item At least three nodes.
-    \item Removing a vertex does not compromise connectivity for the graph.
+    \item The graph has at least three nodes (which is true by hypothesis).
+    \item $G \setminus \{v\}$, where $v$ is a generic vertex inside the graph, is still connected.
 \end{itemize}
 Since the graph is not $2$-connected removing a vertex actually compromises connectivity, thus
 whenever we remove a vertex from $V(G)$ we get two different components that we'll call $A$ and
@@ -22,17 +22,20 @@ That means that in both components there has to be a vertex $v$ such that its de
 \floor{\frac{n - 1}{2}}$.
 Let's suppose that the above statement was not true and, without loss of generality, let's suppose
 that $A$ has $\delta(A) > \floor{\frac{n - 1}{2}}$. Then $\delta(B) < \floor{\frac{n - 1}{2}} <
-\frac{n}{2}$ and that would be against the hypothesis.\\
+\frac{n}{2}$ because if $\delta(B) \geq \floor{\frac{n - 1}{2}}$ as well it would mean that there
+would be a vertex $u$ in $B$ connected to at least as many vertices as $v$ in $A$ and that would be
+against the hypothesis because $A \cap B \neq \emptyset$. Thus the graph would still be connected\\
 \linebreak
 To conclude, since both $A$ and $B$ have a vertex ($v \in V(A) \land u \in V(B)$) that should be connected to at least
 $\floor{\frac{n - 1}{2}}$ other vertices, and $N(v) \cap N(u) = \emptyset$ then we can say that
 \begin{equation}
-    |N(v)| |N(u)| = n(G)
+    |N(v)| + |N(u)| = n(G)
 \end{equation}
 thus
 \begin{equation*}
-    \floor{\frac{n - 1}{2}} + \floor{\frac{n - 1}{2}} + 2 = n + 1
+    \floor{\frac{n - 1}{2}} + \floor{\frac{n - 1}{2}} + 2\footnote{The $+2$ comes from the fact that
+    the neighbourhood does not account for the node itself} = n + 1
 \end{equation*}
-And that is a contradiction because in the vertex there are $n$ vertices.\\
-This proves that in a graph with at least three vertices and a $\delta(G) \geq \frac{n}{2}$, the
-graph mus be 2-connected. \hspace{10mm} $\square$
+And that is a contradiction because the graph contains $n$ vertices.\\
+This proves that if a graph has at least three vertices and $\delta(G) \geq \frac{n}{2}$, then it
+must be $2$-connected. \hspace{10mm} $\square$

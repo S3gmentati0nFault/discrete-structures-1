@@ -14,20 +14,18 @@ $V_i(T)$.\\
 In the base case we just have the root with a set of sons that is of at least three vertices, the
 property trivially holds.\\
 \linebreak
-The more interesting case is the recursive one, in which I have a tree of a generic dimension, for
+The more interesting case is the inductive one, in which I have a generic tree, for
 which I suppose that $|V_l(T)| > |V_i(T)|$ holds.\\
-If I add a subtree to my current tree, whatever the number of sons, I will just be turning one of
+If I add a subtree to my current tree, independently from the number of sons, I will just be turning one of
 the leaves in the root of the subtree and I will be attatching to it $k$ sons. This can be
 translated into the following
 \begin{equation}
     |V_l(T)| + k > |V_i(T)| + 1
 \end{equation}
-If the above weren't true we would be having the following
-\begin{itemize}
-    \item $k = 1$, which would invalidate the fact that any vertex in the tree must have more than two
-    sons.
-    \item $|V_l(T)| = |V_i(T)|$, which would invalidate our inductive hypothesis.
-\end{itemize}
-Thus in the end we have that $|V_l(T)| + k > |V_i(T)| + 1$ and thus our property still holds, thus
-we have proven that the number of leaves is always greater than the number of internal vertices for
-the tree. \hspace{10mm} $\square$
+If the above weren't true we would be either saying that $|V_l(T)| \leq |V_i(T)|$ which would
+contradict the induction hypothesis, or we would be saying that $k = 1$ and thus the new subtree is
+just composed of the root and one son, which would contradict the original hypothesis.\\
+\linebreak 
+Thus in the end we have that $|V_l(T)| + k > |V_i(T)| + 1$, which means that the property still holds, thus
+proving that the number of leaves is always greater than the number of internal vertices for
+any non-binary tree. \hspace{10mm} $\square$
