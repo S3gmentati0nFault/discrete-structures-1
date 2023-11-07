@@ -1,1 +1,41 @@
 \subsection*{Exercise 5}
+\boldmath
+\textbf{Let $G$ be a graph on n vertices. Use BFS to show the following.}
+\begin{enumerate}[a)]
+    \item \textbf{Suppose that $G$ is $k$-regular graph and has girth $g(G) = 4$. Show that $n(G) \leq 2k$.} \\
+    \linebreak 
+    \unboldmath
+    We know that the girth of a graph is the size of the smallest cycle and that $k$-regular means that $d(v) = |N(v)| = k$ $\forall v \in V(G)$. \\
+    \linebreak 
+    In BFS starting at a given vertex $v_1$ we are first exploring all vertices in $N(v_1)$ before moving on to next vertex to explore. \\
+    \linebreak 
+    As $G$ has a girth of 4, there can be no cycles of length 3. This means that in $N(v) \forall v \in V(G)$, no vertices can be adjacent, as this would create a cycle of length 3 (and so there would be a smaller cycle than the girth). \\
+    \linebreak 
+    %As this is the case, all neighbourhoods can have an overlap of at most 1 vertex.  
+    %\boldmath 
+    Let $N(v_1) = \{k_1, ..., k_k\}$. We know that following properties hold:
+    \begin{itemize}
+        \item $\forall k_i \in N(v_1)$ $ N(k_i)$ includes $v_1$ but has $k-1$ vertices that are not $\in N(v_1)$, i.e. $N(v_1) \cap N(k_i) = \emptyset$. %There can be no intersection in $N(v_1)$ and $N(N(k_i))$ as this would create cycles of length 3. 
+        \item We know that $N(N(v_1)$ is one set of size $k-1$. Hence, $N(k_1) = N(k_2) = ... = N(k_i)$.
+        \item $N(k_1) = N(k_2) = ... = N(k_i)$. This means that as we explore the neighbour of $v_1$, at most $k-1$ new vertices are added.
+        \item $\forall v \in N(k_i) \forall k_i \in N(v_1)$
+        \item Every vertex that has been added is adjacent to 
+    \end{itemize}
+    From this we can conclude that at we can have at most $1 + k + k-1 = k + k = 2k$ vertices. 
+    %We also know that, as $G$ is $k$-regular,  
+    \boldmath
+    \item \textbf{Suppose that $\delta(G) \geq k$ and $g(G) = 5$. Show that $n(G) \geq k^2 + 1$.} \\
+    \linebreak 
+    \unboldmath
+    As $\delta(G) \geq k$, all vertices must have a degree of at least $k$. We also know that as the girth is = 5, there can be no cycles of length 3 or 4. \\
+    \linebreak 
+    As mentioned in the previous question, we know that a cycle of length 3 is created if, for any $v \in V(G)$, a pair of vertices $\in N(v)$ are adjacent. Furthermore, a cycle of length 4 can be created in one of two ways:
+    \begin{itemize}
+        \item For any vertex $v$ and any three vertices $k_1, k_2, k_3 \in N(v)$, two pairs of vertices are adjacent. 
+        \item For any vertex $v$ and any two vertices $k_1$ and $k_2 \in N(v)$, $k_1$ and $k_2$ share a neighbour \textbf{\boldmath $\neq v$ \unboldmath} 
+    \end{itemize}
+    From the second statement, we know that each vertex is linked to at least $k-1$ distinct vertices. \\
+    \linebreak 
+    
+    %Let vertex $v \in V(G)$ have degree $k+1$.  
+\end{enumerate}

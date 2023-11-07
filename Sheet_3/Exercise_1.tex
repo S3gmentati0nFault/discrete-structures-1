@@ -2,32 +2,28 @@
 \subsection*{Exercise 1}
 \boldmath 
 \textbf{Let $G$ be a graph on $n \geq 3$ vertices with $\delta(G) \geq \frac{n}{2}$. Show that $G$ is
-$2$-connected.}
-\unboldmath\\
-\linebreak
-\textbf{Proof}\\
-We want to prove the above by contradiction, let's suppose that $\delta(G) \geq \frac{n}{2}$ does
-not imply is $2$-connectivity.\\
-$2$-connectivity would imply the following:
+$2$-connected.
+\spacer
+Proof} 
+\unboldmath
+
+A graph is $k$-connected if one can remove strictly less than $k$ vertices and the resulting graph is still connected. In order for a graph $G$ to be $k$-connected, $|V(G)| \geq k + 1$. Therefore, for our graph $G$ it holds true that: 
 \begin{itemize}
-    \item The graph has at least three nodes (which is true by hypothesis).
-    \item $G \setminus \{v\}$, where $v$ is a generic vertex inside the graph, is still connected.
+    \item $|V(G)| \geq 3$
+    \item $G \setminus \{v\}$, where $v$ is a generic vertex $\in V(G)$, is still connected.
 \end{itemize}
-Since the graph is not $2$-connected removing a vertex actually compromises connectivity, thus
-whenever we remove a vertex from $V(G)$ we get two different components that we'll call $A$ and
-$B$.\\
+Suppose, for a contradiction, that $G$ \boldmath is \textbf{not $k$-connected}. \unboldmath As $G$ is not $k$-connected, removing a single vertex $v$ disconnects the graph. Let $G'$ be the graph $G\setminus v$\\
 \linebreak
-Both components must have $\delta(X) = \floor{\frac{n - 1}{2}}$, where $X$ is the generic component.
-That means that in both components there has to be a vertex $v$ such that its degree $d_X(v) =
-\floor{\frac{n - 1}{2}}$.
-Let's suppose that the above statement was not true and, without loss of generality, let's suppose
-that $A$ has $\delta(A) > \floor{\frac{n - 1}{2}}$. Then $\delta(B) < \floor{\frac{n - 1}{2}} <
-\frac{n}{2}$ because if $\delta(B) \geq \floor{\frac{n - 1}{2}}$ as well it would mean that there
-would be a vertex $u$ in $B$ connected to at least as many vertices as $v$ in $A$ and that would be
-against the hypothesis because $A \cap B \neq \emptyset$. Thus the graph would still be connected\\
-\linebreak
-To conclude, since both $A$ and $B$ have a vertex ($v \in V(A) \land u \in V(B)$) that should be connected to at least
-$\floor{\frac{n - 1}{2}}$ other vertices, and $N(v) \cap N(u) = \emptyset$ then we can say that
+By definition, $G'$ will consist of two connected components $G_1$ and $G_2$. By definition, $V(G_1) \subset V$, $V(G_2) \subset V$ and $V(G_1) \cap V(G_2) = \emptyset$.
+\\ \linebreak
+Both components $G_1$ and $G_2$ must have minimum degree equal to $\floor{\frac{n - 1}{2}}$. \\
+\boldmath
+\textbf{That means that in both components there has to be a vertex $v$ such that its degree $d(v) = \floor{\frac{n - 1}{2}}$.}
+\unboldmath
+
+\textbf{Proof\:\:[\:\:}If that weren't true then the graph would still be connected, without loss of generality, let's suppose that $G_1$ has $\delta(G_1) > \floor{\frac{n - 1}{2}}$. Then $\delta(G_2) < \floor{\frac{n - 1}{2}} < \frac{n}{2}$, if $\delta(G_2) \geq \floor{\frac{n - 1}{2}}$ as well it would mean that there would be a vertex $u$ in $G_2$ connected to at least as many vertices as $v$ in $G_1$ and that would mean $V(G_1) \cap V(G_2) \neq \emptyset$. Which is against the disconnection hypothesis, and makes the graph connected.\textbf{\:\:]}\\
+\linebreak 
+To conclude, since both $G_1$ and $G_2$ have a vertex ($v \in V(G_1) \land u \in V(G_2)$) that should be connected to at least $\floor{\frac{n - 1}{2}}$ other vertices, and $N(v) \cap N(u) = \emptyset$ then we can say that
 \begin{equation}
     |N(v)| + |N(u)| = n(G)
 \end{equation}
@@ -36,6 +32,6 @@ thus
     \floor{\frac{n - 1}{2}} + \floor{\frac{n - 1}{2}} + 2\footnote{The $+2$ comes from the fact that
     the neighbourhood does not account for the node itself} = n + 1
 \end{equation*}
-And that is a contradiction because the graph contains $n$ vertices.\\
-This proves that if a graph has at least three vertices and $\delta(G) \geq \frac{n}{2}$, then it
-must be $2$-connected. \hspace{10mm} $\square$
+And that is a contradiction because the graph contains $n$ vertices.
+
+This proves that if a graph has at least three vertices and $\delta(G) \geq \frac{n}{2}$, then it must be $2$-connected. \qed

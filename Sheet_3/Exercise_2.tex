@@ -1,1 +1,19 @@
 \subsection*{Exercise 2}
+\boldmath
+\textbf{Let $G$ be a $k$-connected graph. Let $G'$ be obtained from $G$ by adding a new vertex and
+connecting it to $k$ vertices of $G$. Show that $G'$ is $k$-connected.\spacer
+Proof}
+\unboldmath
+
+A graph $G$ is $k$-connected, if $|V(G)| \geq k+1$ and $\forall \:\:X \subseteq V(G), \:\:|X| < k, \:\:G - X$ is still connected.\spacer
+Let's suppose that $G$ is a graph with $n$ vertices and is $k$-connected, we'll build $G'$ starting
+from $G$ and adding just one vertex (we will call it $v$) connected to $k$ other vertices.\spacer
+Let's suppose that after adding $v$, $G'$ would not be $k$-connected anymore, that would mean, essentially, that by removing a subset of vertices of size less than $k$ from $V(G')$, $G'$ would not be connected anymore.\footnote{It can be trivially proven that, for $G'$, $n(G') > n(G) > k + 1$}\spacer
+If we try to remove the biggest set $X$ possible, thus a set of size $k - 1$ we have two possible
+choices:
+\begin{itemize}
+    \item $v \in X \implies \:\:$ we are removing $k - 2$ vertices from the subgraph $G$ (which is $k$-connected by hypothesis), thus the graph is still connected.
+    \item $v \notin X \implies \:\:$ we remove $k - 1$ vertices from the subgraph $G$. Since $v$ is connected to $k$ of them, we will always have, after removal, at least one vertex in $V(G)$ linked to what remains of $V(G)$. Moreover, since $G$ is $k$-connected, even if we remove $k - 1$ vertices from it the graph will remain connected.
+\end{itemize}
+Then we have that, no matter how we choose $X \subseteq V(G')$, $G'$ stays connected,
+contradicting in fact the hypothesis of $G'$ not being connected, proving that $G'$ is $k$-connected. \qed

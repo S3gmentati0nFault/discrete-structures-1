@@ -1,11 +1,10 @@
 \subsection*{Exercise 3}
 \boldmath 
 \textbf{Let $T$ be a tree with no vertex of degree $2$ and $n(T) \geq 2$. Show that $T$ has more leaves than
-other vertices.}
+other vertices. \spacer
+Proof}
 \unboldmath 
-\\ 
-\linebreak 
-\textbf{Proof}
+
 We will prove the hypothesis via induction over the subtrees in $T$. The idea is the following.\\ 
 \linebreak 
 We will call the set of the leaves of the tree $V_l(T)$ and the set of internal nodes in the tree as
@@ -14,18 +13,12 @@ $V_i(T)$.\\
 In the base case we just have the root with a set of sons that is of at least three vertices, the
 property trivially holds.\\
 \linebreak
-The more interesting case is the inductive one, in which I have a generic tree, for
-which I suppose that $|V_l(T)| > |V_i(T)|$ holds.\\
-If I add a subtree to my current tree, independently from the number of sons, I will just be turning one of
-the leaves in the root of the subtree and I will be attatching to it $k$ sons. This can be
-translated into the following
+The more interesting case is the inductive one, in which we have a generic tree, for which I suppose that $|V_l(T)| > |V_i(T)|$ holds.\\
+If I add a subtree to my current tree, independently from the number of sons, I will just be turning one of the leaves in the root of the subtree and I will be attaching to it $k$ sons. This can be translated into the following
 \begin{equation}
     |V_l(T)| + k > |V_i(T)| + 1
 \end{equation}
-If the above weren't true we would be either saying that $|V_l(T)| \leq |V_i(T)|$ which would
-contradict the induction hypothesis, or we would be saying that $k = 1$ and thus the new subtree is
-just composed of the root and one son, which would contradict the original hypothesis.\\
+If the above weren't true we would be either saying that $|V_l(T)| \leq |V_i(T)|$ which would contradict the induction hypothesis, or we would be saying that $k = 1$ and thus the new subtree is just composed of the root and one son, which would contradict the original hypothesis.\\
 \linebreak 
 Thus in the end we have that $|V_l(T)| + k > |V_i(T)| + 1$, which means that the property still holds, thus
-proving that the number of leaves is always greater than the number of internal vertices for
-any non-binary tree. \hspace{10mm} $\square$
+proving that the number of leaves is always greater than the number of internal vertices for any non-binary tree. \qed

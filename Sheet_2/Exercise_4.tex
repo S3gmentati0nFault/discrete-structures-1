@@ -15,9 +15,14 @@ If any of the above doesn't hold for any reason then we can't say that $T$ is a 
 \linebreak 
 Therefore, we know that $\exists$ a path to as many leaves as there are neighbours $\in N_T(v)$. If that weren't true that would mean that one of the leaves in the tree is disconnected from $v$ and thus $T$ would not be a tree. We must finally show that each neighbour that is not a leaf has a path to a \textit{unique} leaf. \\
 \linebreak 
-We can prove this easily using a contradiction. Assume that for two vertices, $u, w \in N_T(v)$,
-there exists a path to the same vertex leaf $x$. As $x$ is a leaf, it has degree 1.\\
+To prove that we can think about this we'll consider the set of vertices $N(v)$, if we consider the
+set of vertices of each of the subtrees rooted in $x \in N(v)$, it's apparent that the intersection
+between all of the different sets will be $\emptyset$.\\ 
+If that weren't true we would have different subtrees containing the same nodes, meaning that for
+two different roots $u, w \in N(v)$ we have a vertex $y$ such that, $uPy \cup yPw \cup wv \cup vu$
+is a cycle, which violates the acyclicity of the tree.\\ 
 \linebreak 
-So, the two paths $uPx$ and $wPx$ exist. We also know the following path exists: $uPw$, as $u$ and $w$ are neighbours of $v$. The concatenation of these paths, $uPw \cup wPx \cup xPu$ forms a cycle, as it starts and ends at the same vertex, which cannot hold as trees are by definition acylic.  \\
-\linebreak 
+We can iterate this logic considering the subtrees built starting from the descendants of the
+vertex, if there are no descendants it's clear that the vertex is linked to one single leaf.\\ 
+\linebreak
 By this contradiction, we know that any vertex is linked to as many unique leaves as the size of its neighbourhood. Therefore, any tree $T$ has at least $|N_T(v)| = d(v) = \Delta(T)$ leaves. $\hspace{10mm} \square$ 

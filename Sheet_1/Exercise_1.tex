@@ -1,22 +1,25 @@
 \section*{First sheet}
 \subsection*{Exercise 1} 
 \boldmath \textbf{A graph is \textit{connected} if, for any vertices $u, v \in V(G), G$ contains a 
-$u - v$ path.\\ 
-Prove that a graph or its complement is connected, possibly both.} \vspace{10pt}\\ \unboldmath 
+$u - v$ path.\\
+Prove that a graph or its complement is connected, possibly both.} \spacer \unboldmath 
 To solve the exercise we will just provide two different proofs, the first one is the following:
-\vspace{5pt}\\ \boldmath 
-\textbf{$G$ disconnected $\implies$ $G'$ connected}\vspace{5pt}\\ \unboldmath 
+\spacer \boldmath 
+\textbf{$G$ disconnected $\implies$ $G'$ connected}\vspace{5pt} \unboldmath 
+
 If we make the assumption that the graph $G$ is disconnected, then $G$ contains at least two 
-connected components.\\ 
+connected components.
+
 If we now build the complementary graph to $G$, $G'$, we will have an edge $\forall v, u : v \in 
 V(A) \land u \in V(B)$; where $A$ and $B$ are actually the two connected components we were talking 
-about earlier.\\
+about earlier.
+
 Since we are saying that we will have an edge between any two pairs of vertices in $V(G)$ then we
 are saying that $G'$ is actually connected (the most basic form of connection because we have an
-actual edge between every single pair). 
-\vspace{2pt}\\\hspace*{3cm}$\square$\vspace*{10pt}\\
+actual edge between every single pair). \qed \spacer
 \boldmath \textbf{$G$ connected $\implies G'$ connected $\vee\hspace{3pt} G'$
-disconnected}\vspace{5pt}\\ \unboldmath 
+disconnected}\vspace{5pt} \unboldmath 
+
 To prove this second point we will use counterexamples. \\
 \begin{center} \begin{tikzpicture} \tikzset{% This is the style settings for nodes
         dep/.style={circle,minimum size=0.75cm,fill=orange!20,draw=orange}, c1/.style={-},
