@@ -1,5 +1,39 @@
-This repository contains all of the exercises that have been proposed during the course of Discrete Structures 1 (2023) hosted at Heidelberg university. All of the proposed solutions have been uploaded and never corrected, unless the solution was completely wrong.
+I'm changing the pourpose of this repository, I want to try and provide the best possible content
+for the course thus all of the solutions here proposed will be revised and corrected so that they
+can (maybe) serve a pourpose and especially because this way my ADHD will be at peace.
 <br>
-Anyone using this repository should consider it just as a reference to understand the amount of work involved in handling the course assignements.
+In the following can be found the roadmap of the various changes that I want to provide for the
+content.
+<br>
+<h2>Work in progess: </h2>
+
+- [ ] Exercise 1 sheet 1
+
+- [ ] Exercise 2 sheet 1
+
+- [ ] Exercise 3 sheet 1
+
+- [ ] Exercise 4 (B and C) sheet 1
+
+- [ ] Exercise 4 sheet 2
+
+- [ ] Exercise 3 sheet 3
+
+- [ ] Exercise 4 sheet 3
+
+- [ ] Exercise 5 sheet 3
+
+- [ ] Exercise 1 sheet 4
+
+- [ ] Exercise 3 sheet 4
+
+- [ ] Exercise 4 sheet 4
+
+- [ ] Exercise 5 sheet 4
+
+In general it would be also nice if we were able, in the production of our solutions, to stick to
+some kind of code etiquette, but we still have to choose what to do with it, most of the Latex code
+here contained doesn't respect best practices (e.g. don't use the "\\" command outside of math-mode
+unless strictly necessary), but we like it so far.
 <br>
 Credits for part of this work go to Ella Nooman, who is in group with me and is helping me solve the exercises.
