@@ -33,7 +33,7 @@ content.
 
 In general it would be also nice if we were able, in the production of our solutions, to stick to
 some kind of code etiquette, but we still have to choose what to do with it, most of the Latex code
-here contained doesn't respect best practices (e.g. don't use the "\\" command outside of math-mode
+here contained doesn't respect best practices (e.g. don't use the "\\\\" command outside of math-mode
 unless strictly necessary), but we like it so far.
 <br>
 Credits for part of this work go to Ella Nooman, who is in group with me and is helping me solve the exercises.
