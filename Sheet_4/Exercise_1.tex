@@ -1,0 +1,15 @@
+\section*{Sheet 4}
+\subsection*{Exercise 1}
+\boldmath
+\textbf{Let $G$ be a connected graph with no path of length 4 and no cycle of length 3 as a subgraph. Show that $G$ is bipartite.} \\
+\unboldmath
+\linebreak 
+$G$ is a bipartite graph if it contains two components $A$ and $B$ such that no vertex $a \in V(A)$ and $b \in V(B)$ are adjacent. This means that if vertices have degree greater than 0, its adjacent edges must have endpoints in the other component. \\
+\linebreak 
+As $G$ is connected, there must $\exists$ a $uv$ path $\forall u, v \in V(G)$. As there exists no path of length 4, $|V(G)|$ must be $\leq 3$. If $G$ has either 1 or 2 vertices it is trivially bipartite. Assume, therefore, that $|V(G)| = 3$. \\
+\linebreak 
+A connected graph $G$ on 3 edges that does not contain a length cycle, means (at least) one pair of vertices is not adjacent. Therefore, let $V = \{u, v, w\}$ and $E = \{uv, vw\}$. \\
+\linebreak 
+As $v$ and $w$ are not adjacent, they can be placed in the same component $A$. As both vertices are adjacent to $w$, this must be in component $B$. Hence, we have a bipartition of $G$ such that adjacent vertices are in separate components, and non-adjacent vertices are in the same component. \\
+\linebreak
+In conclusion, a graph $G$ with no path of length 4 and no cycle of length 3, is bipartite. \qed

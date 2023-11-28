@@ -1,0 +1,39 @@
+\subsection*{Exercise 4}
+\begin{enumerate}[a)]
+\boldmath
+    \item \textbf{Use König’s Theorem (Theorem 2.2) to show that every bipartite graph G has a matching of size at least $\frac{e(G)}{\Delta G}$.}
+    \unboldmath \\
+    \linebreak
+    König's theorem states that for a bipartite graph $G$, the maximum size of a matching equals the minimum size of a vertex cover. \\
+    \linebreak 
+    \textbf{Proof}\\
+    Let's suppose for a contradiction that there only exist matchings $M$ with $|M| < \frac{e(G)}{\Delta(G)}$. This means that, however we picked the matching $M$ for graph $G$, its size will always be less than $\frac{e(G)}{\Delta(G)}$. That means that the maximum matching on $G$ will have to be $< \frac{e(G)}{\Delta(G)}$ as well.
+    By König's theorem, this means the size of the minimum vertex cover $U$ is also $< \frac{e(G)}{\Delta(G)}$. \\
+    \linebreak
+    The inequality $|U| < \frac{e(G)}{\Delta(G)}$ can be rewritten as $|U|\Delta(G) < e(G)$. We can show that this cannot hold. A graph with max degree $\Delta(G)$ needs at least $\Delta(G)+1$ vertices and $\Delta(G)$ edges. \\
+    \linebreak 
+    Take a graph $G$ with $n(G) = \Delta(G)+1$ vertices and $e(G) = \Delta(G)$. Let $A$ = $\{v\}$ with $v$ being the vertex of maximum degree and $B$ consists of the remaining vertices. Note there are no edges between vertices in $B$ as then $(A, B)$ would not be a valid bipartition. \\
+    \linebreak 
+    In this minimum case, the minimum vertex cover would have to contain the vertex of maximum degree $v$. However, even in this minimal case, the condition is violated, as we assume: 
+    \begin{align}
+    \notag
+        |U| & \Delta(G) < e(G)\\
+        \notag
+        \text{ but } 1 \cdot & \Delta(G) \nless \Delta(G)+1 
+    \end{align}
+    Therefore, we have reached a contradiction. This means the minimum vertex cover, and so the maximal matching has size $\geq \frac{e(G)}{\Delta(G)}$. \qed
+    \boldmath
+    \item \textbf{Deduce that every subgraph of $K_{n,n}$ with more than $(k-1)n$ edges has a matching of size at least $k$}
+    \unboldmath \\
+    \linebreak
+    \textbf{Proof} \\
+    Let $K_{n, n}$ denote a complete bipartite graph with bipartition $(A, B)$, where $|A| = |B| = n$. As $G$ is a complete bipartite graph, with $|A| = |B|$, it must be $k$-regular and so $\delta(G) = \Delta(G) = d(G) = n$. We can use the finding from part a) to prove the statement:
+    \begin{align*}
+        |M| &\geq \frac{e(G)}{\Delta(G)} &&\text{Because of what we showed earlier}\\
+            & > \frac{(k - 1) \cdot n}{\Delta(G)} &&\text{By hypothesis on the number of edges in the matching}\\
+            & > \frac{(k - 1) \cdot n}{n}\\
+            & > k - 1 \\
+            & \geq k
+    \end{align*}
+    Using the finding from part a), we have been able to show that any subgraph of $K_{n,n}$ with more than $(k-1)\cdot n$ edges has a matching $M$ where $|M| \geq k$. \qed
+\end{enumerate}

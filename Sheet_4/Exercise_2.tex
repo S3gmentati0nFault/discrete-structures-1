@@ -1,0 +1,32 @@
+\subsection*{Exercise 2}
+\boldmath
+\textbf{Prove or disprove: A connected graph $G$ is bipartite if and only if for any $uv \in E(G)$ there is no $w \in V(G)$ with $dist_G(u,w) = dist_G(v,w).$} \\
+\unboldmath 
+\linebreak 
+As $G$ is bipartite there exists a bipartition $(A, B)$ s.t. $V(A) \cap V(B) = \emptyset$ and $V(A) + V(B) = V(G).$  Assume $u \in V(A)$ and $v \in V(B)$. The claim asserts that there cannot exist a vertex $w$ in either $V(A)$ or $V(B)$ s.t. $dist_G(u, w) = dist_G(v, w)$. \\
+\linebreak 
+\boldmath
+\textbf{$(\Rightarrow)$ If for any $uv \in E(G)$ there is no $w$ such that $dist_G(u,w) = dist_G(v,w)$, then $G$ is bipartite.} \\
+\unboldmath
+\linebreak 
+Without loss of generality, we can assume for a contradiction, that $\exists$ such a vertex $w \in V(A)$. This means $\exists$ a path $uPw$ and a path $vPw$ of equal length. As $G$ is connected both paths must exist and so have length 
+$>$ 1. \\
+\linebreak
+However, as $u$ and $w$ are $\in A$, any path between them must have an equal length. As $v$ and $w$ are in separate components of the bipartition, any path between them must have odd length. \\
+\linebreak 
+An even number can never equal an odd number and vice versa, and so $dist_G(u, w)$ can never equal $dist_G(v, w)$ for any $w$. Therefore, no such $w$ can exist.\\
+\linebreak 
+From this contradiction we know that a connected graph $G$ is bipartite if for any $uv \in E(G)$ there is no $w \in V(G)$ with $dist_G(u,w) = dist_G(v,w)$. \\
+\linebreak 
+\boldmath
+\textbf{$(\Leftarrow)$ $G$ is \textit{only} bipartite if for any $uv \in E(G)$ there is no $w$ such that $dist_G(u,w) = dist_G(v,w)$.}  \\
+\unboldmath
+\linebreak 
+It is sufficient to show that, as no such $w$ exists, the graph cannot contain any odd-length cycles, which is a necessary and sufficient condition for bipartite graphs. \\
+\linebreak 
+There are two ways in which a cycle of odd length can be created: 
+\begin{enumerate}
+    \item For any pair of adjacent vertices $u$ and $v$, there exists a third vertex $w$ s.t. $dist(u, w) = d(v, w)$. We have shown that no such vertex exists. 
+    \item More generally, if there exists some vertex $w$ such that $uPw$ and $vPw$ both have even length. However, per the definition of a bipartite graph, this can never occur. WLOG, we can assume that $u, w\in V(A)$ and $v \in V(B)$. Any path $uPw$ must have even length, whereas any path $vPw$ must have odd length. Hence, it is not possible that both paths have an even length, and so we cannot create any odd-length cycles in this way either. 
+\end{enumerate}
+This shows that $G$ can have no odd cycles and is therefore bipartite. Only if some vertex $w$ would exist, we would be able to create an odd cycle. This shows that a connected graph $G$ is bipartite if and only if for any $uv \in E(G)$ there is no $w \in V(G)$ with $dist_G(u,w) = dist_G(v,w).$ \qed

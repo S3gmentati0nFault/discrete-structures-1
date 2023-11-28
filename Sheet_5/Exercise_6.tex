@@ -1,0 +1,24 @@
+\subsection*{Exercise 6}
+\boldmath
+\textbf{Let $G$ be a bipartite graph with bipartition $(A, B)$, where $|A| \leq |B|$. Suppose that each $a \in A$ satisfies $d_G(a) \geq \frac{|B|}{2}$ and each $b \in B$ satisfies $d_G(b) \geq |A|- \frac{|B|}{2}$. Show that $G$ has a matching of $A$.}
+\unboldmath\\
+\linebreak
+\textbf{Proof}\\
+Let's suppose for a contradiction that the graph $G$ does not admit a matching $M$ of $A$. We will call this matching $M_A$. \\
+\linebreak 
+Since there is no matching for $A$ we know that there is at least 1 vertex $a \in A$ that is unmatched. In general, for any such $a$, one of the following scenarios holds:
+\begin{enumerate}
+    \item $a$ has no adjacent vertices $\in B$. Assume that this is not the case as this would void the hypothesis, as $a$ will always be unmatched. Therefore, we consider only the case below:
+    \item $a$ has no 'free' neighbouring vertices $\in B$. This means that adding one of the adjacent vertices of $a$ would violate the matching as it would no longer be independent. 
+\end{enumerate}
+Therefore, we will consider the second case, and show how we can remedy this, so that there is indeed a matching of $A$. Take the unmatched vertex $a$. We can find an augmenting path that will 'free up' a vertex $\in N(a)$. The idea is the following: \\
+\linebreak 
+Let $x$ be a vertex $\in N(a)$. As $x$ is a matched vertex, we know there exist some vertex $a' \in A$ s.t. $xa'$ is an edge $\in M_A$. So, there are two edges $ax$ and $xa'$. We will add $ax$ to $M_A$ and remove $xa'$ from $M_A$. We would then have to find a free neighbour for $a'$ in order for it to be matched. \\
+\linebreak 
+If this neighbour exists, let's call it $y$, then we have undergone the following procedure: add $ax$ to $M_A$, remove $xa'$ from $M_A$, add $a'y$ to $M_A$. This way, both $a$ and $a'$ are now matched.\\
+\linebreak 
+If there is no free neighbour for $a'$, we will have to recursively apply to search until we find a vertex with a free neighbour. If we never find such a free vertex, there is simply no matching of $A$. \\
+\linebreak 
+However, in this particular case we can be sure that the augmenting path search will converge due to the fact that each $a \in A$ satisfies $d_G(a) \geq \frac{|B|}{2}$ and each $b \in B$ satisfies $d_G(b) \geq |A| - \frac{|B|}{2}$, and our matching requires exactly $|A|$ edges. \\
+\linebreak 
+Therefore, we have reached a contradiction for the statement that the matching $M_A$ cannot exist. In conclusion, we see that a bipartite with degree requirements as stated in the proposition will have a matching of $A$. \qed

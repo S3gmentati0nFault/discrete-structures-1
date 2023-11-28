@@ -7,22 +7,17 @@
     \unboldmath
     We know that the girth of a graph is the size of the smallest cycle and that $k$-regular means that $d(v) = |N(v)| = k$ $\forall v \in V(G)$. \\
     \linebreak 
-    In BFS starting at a given vertex $v_1$ we are first exploring all vertices in $N(v_1)$ before moving on to next vertex to explore. \\
+    In BFS starting at a given vertex $v_1$ we are first exploring all vertices in $N(v_1)$ before moving on to the next vertex to explore (which will be $\in N(v_1)$). \\
     \linebreak 
-    As $G$ has a girth of 4, there can be no cycles of length 3. This means that in $N(v) \forall v \in V(G)$, no vertices can be adjacent, as this would create a cycle of length 3 (and so there would be a smaller cycle than the girth). \\
+    As $G$ has a girth of 4, there can be no cycles of length 3. This means that for any $v \in V(G)$, there can be no adjacent vertices in $N(v)$. This would create a cycle of length 3. \\
     \linebreak 
-    %As this is the case, all neighbourhoods can have an overlap of at most 1 vertex.  
-    %\boldmath 
-    Let $N(v_1) = \{k_1, ..., k_k\}$. We know that following properties hold:
-    \begin{itemize}
-        \item $\forall k_i \in N(v_1)$ $ N(k_i)$ includes $v_1$ but has $k-1$ vertices that are not $\in N(v_1)$, i.e. $N(v_1) \cap N(k_i) = \emptyset$. %There can be no intersection in $N(v_1)$ and $N(N(k_i))$ as this would create cycles of length 3. 
-        \item We know that $N(N(v_1)$ is one set of size $k-1$. Hence, $N(k_1) = N(k_2) = ... = N(k_i)$.
-        \item $N(k_1) = N(k_2) = ... = N(k_i)$. This means that as we explore the neighbour of $v_1$, at most $k-1$ new vertices are added.
-        \item $\forall v \in N(k_i) \forall k_i \in N(v_1)$
-        \item Every vertex that has been added is adjacent to 
-    \end{itemize}
-    From this we can conclude that at we can have at most $1 + k + k-1 = k + k = 2k$ vertices. 
-    %We also know that, as $G$ is $k$-regular,  
+    Let $N(v_1) = \{k_1, ..., k_k\}$. We know that $\forall k_i \in N(v_1)$ $ N(k_i)$ includes $v_1$ but has $k-1$ vertices other than $v_1$ and that are not $\in N(v_1)$, i.e. $N(v_1) \cap N(k_i) = \emptyset$. There is nothing preventing overlap in the neighbourhoods of $k_1, ... k_k$, however. \\
+    \linebreak 
+    To the contrary, it holds that $N(N(v_1))$ is one set of size $k$, with $k-1$ new vertices, i.e. $N(k_1) = N(k_2) = ... = N(k_i)$. We know immediately that it holds that there must be some overlap of the neighbours in order to create a cycle of length 4. But in fact, all sets must be equal, otherwise it would not be possible to to build a $k$-regular graph. \\
+    \linebreak 
+    Finally, we know that $N(N(N(v_1)))$ cannot exist, as all vertices we have explored thus far already have a degree $k$. \\
+    \linebreak 
+    To conclude, in BFS we would explore vertex $v_1$ followed by the $k$ vertices in $\in N(v_1)$ followed by $k-1$ vertices in $N(N(v_1))$. Further vertices cannot exist in the graph, as this would violate $k$-regularity. So, we know that $G$ can have at most $1 + k + k-1 = k + k = 2k$ vertices. \qed
     \boldmath
     \item \textbf{Suppose that $\delta(G) \geq k$ and $g(G) = 5$. Show that $n(G) \geq k^2 + 1$.} \\
     \linebreak 
@@ -34,8 +29,13 @@
         \item For any vertex $v$ and any three vertices $k_1, k_2, k_3 \in N(v)$, two pairs of vertices are adjacent. 
         \item For any vertex $v$ and any two vertices $k_1$ and $k_2 \in N(v)$, $k_1$ and $k_2$ share a neighbour \textbf{\boldmath $\neq v$ \unboldmath} 
     \end{itemize}
-    From the second statement, we know that each vertex is linked to at least $k-1$ distinct vertices. \\
+    From the second statement, we know that each vertex $\in N(v_1)$ linked to at least $k-1$ distinct vertices as they share the common neighbour $v_1$ but any further neighbours in common would result in a cycle of length 4. \\
+    \linebreak
+    When using BFS, we would first explore all vertices $\in N(v_1)$. After this vertex and its neighbours have been explored, we have explored $ \geq 1 + k$ vertices. In the next iteration, we explore the neighbourhood of all vertices $\in N(v_1)$. \\
     \linebreak 
-    
-    %Let vertex $v \in V(G)$ have degree $k+1$.  
+    In this iteration, we have explored all vertices in $N(N(v_1))$. As each neighbour of $v_1$ has at least $k-1$ distinct neighbours, we have explored $\geq k(k-1)$ vertices. In total, therefore, we have explored $ \geq 1 + k + k(k-1) = 1 + k + k^2 - k = \geq 1 + k^2$. \\
+    \linebreak 
+    In further iterations, neighbourhoods do not need to consist of at least $k-1$ distinct vertices, as common vertices would result in cycles of length 5, which is allowed. Regardless, the requirement that $n(G) \geq k^2 + 1$ is already satisfied. \\
+    \linebreak 
+    In conclusion, for a graph $G$ with $\delta(G) \geq k$ and $g(G) \geq 5$, $n(G) \geq k^2 + 1$. \qed
 \end{enumerate}

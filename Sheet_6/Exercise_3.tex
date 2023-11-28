@@ -1,0 +1,50 @@
+\subsection*{Exercise 3}
+
+\boldmath
+\textbf{Let $G$ be a bipartite graph with bipartition $(A, B).$ If $n(G)$ is even, let $B':= B$; if $n(G)$ is odd, let $B'$ be obtained from $B$ by adding a new vertex $v \notin A \cup B$. Let H be the graph on $A \cup B'$ defined by $E(H) := E(G) \cup \{xy | x \neq y, x, y \in B'\}$.}
+\unboldmath
+
+\begin{enumerate}[a)]
+    \boldmath
+    \item \textbf{Prove that $G$ has a matching of $A$ if and only if $H$ has a perfect matching.} \\
+    \linebreak 
+    \textbf{(Proof $\implies$)} \unboldmath  If $G$ has a matching of $A \implies H$ has a perfect matching \\
+    \linebreak 
+    Assume, for a contradiction, that $H$ does have a pair of unmatched vertices. This would mean that $\exists >= 1$ pair of vertices that were not covered by the matching. \\
+    \linebreak 
+    We know that the number of unmatched vertices is always an even number because $|V(H)|$ will always be even and if $|A|$ is odd, $|B'|$ is odd, thus the number of unmatched vertices will be even; if $|A|$ is even, $|B'|$ is even, thus the number of unmatched vertices will still be even. \\
+    \linebreak 
+    We know that there exists a matching for $A$. Therefore, any unmatched vertices must be $\in B'$. \\
+    \linebreak 
+    Due to how we construct $H$ we will always have a connected subgraph built from the vertices in $B'$. In particular, if we consider only the subgraph containing the unmatched vertices (which are all in $B'$), we will have a complete subgraph with an even number of vertices. And any clique with an even number of vertices always contains a perfect matching. \\
+    \linebreak 
+    Since $E(G) \subset E(H)$, whatever matching we have for $A$ in $G$ will remain in $H$. This means that we are creating a new graph that contains the old matching for $A$ and adds the missing edges to build a new one for the unmatched vertices $\in B'$. \\
+    \linebreak 
+    As all vertices in $A$ are matched, and now all unmatched vertices in $B'$ are matched, we have created a perfect matching. Thus, we have contradicted the hypothesis that $H$ does not contain a perfect matching. \\
+    \linebreak 
+    To conclude, if $G$ contains a matching of $A$, then the graph $H$ built from $G$ as described in the statement contains a perfect matching. \qed\\
+    \linebreak
+    \boldmath
+    \textbf{(Proof $\impliedby$)} \unboldmath If $H$ has a perfect matching $\implies G$ has a matching of $A$\\
+    Since $H$ was built starting from $G$ by adding edges to link the vertices in $B'$ and $E(G)$ is preserved throughout the process then $G$ must contain already a matching for $A$, because, if it did not, adding edges to turn the subgraph based on $B'$ into a complete subgraph would not produce any relevant change for the vertices in $A$.\\
+    \linebreak
+    In fact, if we call $x \in A$ a vertex inside $A$, the only way for it to be matched in $H$ is that there is a $y \in B \implies y \in B' \st xy \in E(G)$. Since $H$ does only modify $E(B')$ if the edge $xy \notin E(G)$ it will not be in $E(H)$ and thus $A$ will not be matched in $H$ either. \qed
+    \boldmath
+    \item \textbf{Prove that if $G$ satisfies Hall’s condition, then $H$ satisfies Tutte’s Condition.}
+    \unboldmath\\
+    \linebreak
+    \textbf{Proof}\\
+    Let's suppose that $G$ satisfies Hall's condition, then $\forall X \subseteq V(G), \: |N_G(X)| \geq |X|$.\\
+    That means that $G$ allows a matching for $A$.\\
+    \linebreak
+    Since $G$ allows for a matching for $A \implies$ if we build $H$ following the steps shown in the hypothesis then $H$ will contain a perfect matching, that is true because of \textit{point A}.\\
+    \linebreak
+    Since $H$ contains a perfect matching, then, because of Tutte's theorem, we can say that $q(G - S) \leq |S| \hspace{3pt}\forall S \subseteq V(G)$. Which proves that Tutte's condition holds for $H$ if $G$ satisfies Hall's condition. \qed
+    
+    \item \textbf{Use (a) and (b) to derive Hall’s theorem from Tutte’s theorem.}\\
+    \linebreak
+    \textbf{Proof}\\
+    Tutte's theorem grants us that we actually have a perfect matching for $H$. Since we have a perfect matching for $H$ we can use \textit{point A} to grant that we actually have a matching for $A$ in $G$.\\
+    \linebreak
+    Since $G$ is bipartite and contains a matching $\implies$ Hall's condition must hold. \qed
+\end{enumerate}

@@ -1,0 +1,37 @@
+\subsection*{Exercise 5}
+\boldmath
+\textbf{Let $G$ be a connected graph and let $k \geq 3$. Show that the following are equivalent.}
+\unboldmath
+\begin{enumerate}[a)]
+    \boldmath
+    \item \textbf{$G$ contains $K_{1,k}$ as a minor. (The complete bipartite graph $K_{1,k}$ is sometimes called a $k$-star, denoted $S_k$.)}
+    \unboldmath
+
+    \boldmath
+    \item \textbf{$G$ contains a tree with at least $k$ leaves as a subgraph.}
+    \unboldmath
+
+    \boldmath
+    \item \textbf{$G$ has a spanning tree with at least $k$ leaves.}
+    \unboldmath
+\end{enumerate}
+We will be proving the above statement like we did for statement 1.15 during lectures.
+\subsection*{a) $\implies$ b)}
+Let's suppose we have a generic graph $G$ having $K_{1, k}$ for a minor. This type of minors are called \textit{Star minors} and we will call $x$ the vertex at the center of the star. Since the graph is connected by hypothesis we can always build a spanning tree $T$ for $G$ by corollary 1.16.\\
+\linebreak
+At lecture we defined Algorithm 1 that allows us to build a spanning tree starting from a graph $G$ and a vertex. Since we have proven that the algorithm works and we have proven in a previous sheet that any tree $T$ will have at least $\Delta(T)$ leaves, if we build the spanning tree rooted in $x$ and $x$ is the vertex with highest degree into the spanning tree, then we can say that $T$ has at least $k$ leaves. If $x$ is not the vertex with highest degree in $T$ we can say that there is going to be another vertex, called $y$, such that $d_T(y) > d_T(x) = k$ thus we will have a tree rooted in $x$ with surely more than $k$ leaves.\\
+\linebreak
+The above proves that if $G$ contains a $K_{1, k}$ minor then there is a tree, in particular the spanning tree, $T$ which is subgraph of $G$ that contains at least $k$ leaves. \qed
+\subsection*{b) $\implies$ c)}
+By hypothesis we have a graph $G$ containing a tree $T$ with at least $k$ leaves. We know from the second sheet that any tree with at least $k$ leaves must have a vertex $x$ with $k$ sons ($\Delta(T) = |S_T(x)| = k$, where $S_T(\cdot)$ is the set of for vertex $x$ in $T$).\\
+\linebreak
+Then among all of the possible spanning trees for $G$ we can consider the tree $T'$ that contains $x$ and all of its sons. That spanning tree will have, by the same theorem, at least $k$ leaves. \qed
+\subsection*{c) $\implies$ a)}
+Let's suppose by contradiction that graph $G$ doesn't have a $K_{1, k}$ minor, that means that there is no way for us, starting from $G$, through \lazyspc to get to a $K_{1, k}$ subgraph.\\
+\linebreak
+Keeping that in mind, by theorem 1.15, any tree is a tree only if it is minimally connected, we can eliminate any vertex / edge, as long as we start from the leaves and we maintain connectivity in the structure.\\
+\linebreak
+Since $G$ has a spanning tree $T$ with at least $k$ leaves by hypothesis we know from the second sheet that there is a vertex $x \in V(T)$ such that $x$ has $k$ sons. That means that through \lazyspc we can reduce $T$ to the subgraph containing just $x$ and its direct descendants.\\
+This subgraph is actually $K_{1, k}$ and, since the minor relation is transitive, being $T$ a minor of $G$, being $K_{1, k}$ a minor of $T$, $K_{1, k}$ is a minor of $G$.\\
+\linebreak
+That is absurd because we supposed that $G$ didn't admit $K_{1, k}$ as a minor, thus proving that a graph $G$ having a spanning tree with at least $k$ leaves implies that $G$ admits $K_{1, k}$ as a minor. \qed

@@ -1,0 +1,27 @@
+\subsection*{Exercise 4}
+\textbf{Prove proposition 1.26 from the lectures: \\
+\linebreak 
+The minor relation $\preccurlyeq$ is a partial order on the set of all finite graphs; that is, $\preccurlyeq$ is reflexive, antisymmetric and transitive.} \\
+\linebreak
+For a graph $G$ and a graph $H$ such that $H \preccurlyeq G$, it holds that $H$ can be obtained by a series of \lazy. The relation is a partial order: 
+\begin{itemize}
+    \item \textbf{Reflexive}, i.e, $G \preccurlyeq G$ \\
+    \linebreak 
+    The set of edge deletions, vertex deletions and edge contractions is not required to be non-empty by definition. Therefore, these sets can be empty, resulting in the graph $G$ itself. This implies $G \preccurlyeq G$. 
+    \item \textbf{Transitive}, i.e. if $F \preccurlyeq H \preccurlyeq G \rightarrow F \preccurlyeq G$ \\
+    \linebreak 
+    Let's call $X$ the set of \lazyspc that take us from F to H, let's call $Y$ the set of \lazyspc that take us from H to G. \\
+    \linebreak 
+    Since those are two sets of operations we can just say that applying $X \cup Y$ to our starting graph $F$ we will get from $F$ to $G$.
+    
+    \item \textbf{Antisymmetric}, i.e. if $H \preccurlyeq G$ and $G \preccurlyeq H$ then $H = G$ or more precisely, $\exists$ $f : V(G)\to V(H)$ ($H$ and $G$ are isomorphic). \\
+    \linebreak
+    Let's call $X$ the set of \lazyspc that take us from $H$ to $G$. Since $G$ is $H$'s minor we can say that 
+    \begin{equation}
+        |V(H)| > |V(G)| \land |E(H)| > |E(G)|\label{eq:minor}
+    \end{equation}
+    Since we can only remove vertices or edges when building a minor, the minor will always be smaller than the original graph. Thus if $G$ is $H$'s minor $H$ cannot be $G$'s minor, because if it were it would mean that $|V(G)| > |V(H)| \land |E(G)| > |E(H)|$ but that would contradict \eqref{eq:minor}.\\
+    \linebreak 
+    Of course that only works when we do not perform any changes on the graph, and thus when we are applying reflexive property.
+\end{itemize}
+In conclusion, we have shown that the minor relation $\preccurlyeq$ is reflexive, transitive and antisymmetric. \qed

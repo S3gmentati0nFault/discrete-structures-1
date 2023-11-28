@@ -1,0 +1,25 @@
+\subsection*{Exercise 3}
+\boldmath
+\textbf{Let $G$ be a graph. An independent set of $G$ is a set of pairwise non-adjacent vertices in $G$. Show
+that $S \subseteq V(G)$ is an independent set of $G$ if and only if $V (G) \setminus S$ is a vertex cover of $G.$} \\
+\unboldmath
+\linebreak
+For a graph $G = (V, E)$, a vertex cover $U \subseteq V(G)$ s.t. $\forall \: uv \in E(G)$, $u \in U \lor v \in U$. \\
+\linebreak 
+An independent set $S$ of $G$ is a set of pairwise non-adjacent vertices in $G$, meaning that 
+for any pair of vertices $u, v \in V(G)$ if $uv \in E(G)$ then $u \in S \lor v \in S$. Similarly, $\forall uv \in E(G)$ if $u \in S \rightarrow v \notin S$. \\
+\linebreak 
+We are proving the statement: $S \subseteq V(G)$ is an independent set $\Leftrightarrow V(G) \setminus S$ is a vertex cover. \\
+\linebreak 
+\textbf{Proof} \\
+\linebreak
+($\Rightarrow$) If $S \subseteq V(G)$ is an independent set $\Rightarrow V(G) \setminus S$ is a vertex cover. \\
+\linebreak 
+As $S$ is an independent set, for any pair of adjacent vertices $u, v \in G$, either $u$ or $v$ are $\in S$. For each pair of vertices, assume $u \in S$, then the $"v"$ vertex is in the set of vertices. i.e. in the set of vertices denoted $V(G) \setminus S$. We also know that this is a valid vertex cover as for each set of edges, exactly 1 endpoint is in $V(G) \setminus S$.  \\
+\linebreak 
+($\Leftarrow$) If $V(G) \setminus S$ is a vertex cover $\Rightarrow S \subseteq V(G)$ is an independent set \\
+\linebreak 
+As $V(G) \setminus S$ is a vertex cover, there can be no adjacent pairs of vertices in $S$. This would mean that there are vertices that are not accounted for in the vertex cover. Therefore, $S$ is an independent set. \\
+\linebreak 
+In proving the two statements above, we have shown that $S \subseteq V(G)$ is an independent set of $G$ if and only if $V (G) \setminus S$ is a vertex cover of $G.$
+\qed 

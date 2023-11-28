@@ -1,0 +1,24 @@
+\subsection*{Exercise 4}
+\boldmath
+\textbf{Use Tutte’s theorem to show that a graph $G$ is factor-critical if and only if $n(G)$ is odd and
+$q(G-S) \leq |S|$ for all non-empty $S \subseteq V (G)$.} \\
+\unboldmath
+\linebreak 
+\textbf{Proof} \\
+A graph $G$ is factor-critical if it holds that the graph $G - \{v\}$ has a perfect matching, for any $v \in V(G)$. Furthermore, Tutte's theorem states that any graph $G$ has a perfect matching if and only if $q(G-S) \leq |S| \:\: \forall \:\: S \subseteq V(G)$, where $q(G)$ denotes the number of odd components in $G$. \\
+\linebreak 
+\boldmath ($\Rightarrow$) \unboldmath If $G$ is factor-critical $\Rightarrow$ $n(G)$ is odd and $q(G-S) \leq |S|$ for all non-empty $S \subseteq V (G)$. 
+\begin{itemize}
+    \item $G$ is factor-critical $\Rightarrow$ $n(G)$ is odd. This must hold as all subgraphs of $G$ on $n-1$ vertices must have a perfect matching. A perfect matching requires an even number of vertices (this is a necessary but not sufficient condition), and $n-1$ can only be even for an odd $n$. 
+    \item $G$ is factor-critical $\Rightarrow$ $q(G-S) \leq |S|$ for all non-empty $S \subseteq V(G)$. \\
+    As $G$ is factor-critical, all subgraphs of size $n-1$ have a perfect matching. In order for all subgraphs to have a perfect matching, Tutte's theorem must hold for all such subgraphs (this is a necessary and sufficient condition). Therefore, it cannot follow that $q(G-S) \leq |S|$ for all non-empty $S \subseteq V(G)$ is false, as this would mean there is some subgraph that does not have a perfect matching. 
+\end{itemize}
+\boldmath ($\Leftarrow$) \unboldmath If $n(G)$ is odd and $q(G-S) \leq |S|$ for all non-empty $S \subseteq V(G)$ $\Rightarrow$ $G$ is factor-critical. \\
+\linebreak 
+Assume, for a contradiction that there exists a graph $G$ that is not factor-critical. This means there will exist at least one subgraph of $G$ on $n-1$ vertices where Tutte's theorem does not hold. \\
+\linebreak
+However, we know that such a subgraph cannot exist, as we assume that Tutte's theorem holds for all subgraphs, and Tutte's theorem is a necessary and sufficient condition for a perfect matching. (We also know that these subgraphs will have an even number of vertices, but that is only a necessary condition). \\
+\linebreak 
+Therefore, we know that it must follow that $G$ is factor-critical. \\
+\linebreak 
+In conclusion, we have shown that a graph $G$ is factor-critical if and only if $n(G)$ is odd and $q(G-S) \leq |S|$ for all non-empty $S \subseteq V (G)$. \qed

@@ -1,0 +1,19 @@
+\subsection*{Exercise 5}
+\boldmath
+\textbf{Let $G$ be a bipartite graph with bipartition $(A, B)$. Suppose that $|N_G(S)| > |S|$ for all non-empty
+$S \subsetneq A$. Prove that every edge of $G$ belongs to a matching of $A$.} \\
+\unboldmath
+\linebreak
+Given a graph $G$ and a subset $A \subseteq V(G)$, a matching of $A$ in $G$ is a matching $M$ such that $\forall a \in A$ is incident to an edge in M. \\
+\linebreak 
+Furthermore, Hall's theorem states that there exists a matching of $A$ if and only if $|N_G(S)| \geq |S| \:\: \forall \:\: S \subseteq A$. \\
+\linebreak 
+\textbf{Proof} \\
+We must show that for every edge $e \in E(G)$, it is possible to construct a matching using $e$ such that all vertices in $A$ are matched. In general, it does not hold, but the additional condition $|N_G(S)| > |S|$ makes it true. \\
+\linebreak 
+Take two vertices $a, b \in V(G)$ and its edge $ab \in E(G)$. $ab$ will be the first edge of our matching. Then, all vertices in the set $V(A - \{a\})$ must also be matched, and we know that $|N_G(A-\{a\})| > |A-\{a\}|$ i.e. $ > |A| - 1$ $\geq A$. \\
+\linebreak 
+We know that it is possible to match all vertices in $V(A - \{a\})$ as Hall's condition for a matching of $(A - \{a\})$ holds: $|N_G(A-\{a\})| \geq |A|$ (as it will also hold for any subset of $V(A-\{a\})$ by the statement). \\
+\linebreak 
+We have shown that for any choice of $e$, we can construct a matching of $A$ using this edge. So for a bipartite graph $G$ with bipartition $(A, B)$ with the property $|N_G(S)| > |S|$ for all non-empty
+$S \subsetneq A$, we can construct a matching of $A$ using any edge in $E(G)$. \qed

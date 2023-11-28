@@ -1,0 +1,28 @@
+\section*{Sheet 5}
+\subsection*{Exercise 1}
+\boldmath
+\textbf{Let $G$ be a graph. A \textit{cycle decomposition} of $G$ is a partition of $E(G)$ into cycles (i.e., a set of edge-disjoint cycles of $G$ covering all the edges of $G$). Show that $G$ has a cycle decomposition if and only if each of its connected components contains an Euler tour}. \\
+\unboldmath
+\linebreak 
+An Euler tour is cycle that uses each edge in the graph exactly once. It is a necessary and sufficient condition that a graph contains an Euler tour if all vertices have even degree. \\
+\linebreak 
+Therefore, we can show that $G$ has a cycle decomposition if and only if all vertices have even degree. WLOG we can consider each component separately. Let $F$ be a connected component of $G$. \\
+\linebreak 
+\boldmath
+($\Rightarrow$) \unboldmath If $F$ has a cycle decomposition $\Rightarrow$ all vertices $\in F$ have even degree. \\
+\linebreak 
+As $F$ is connected, there are no isolated vertices (vertices of degree 0). Therefore, $\forall v \in V(F)$, $d_F(v) \geq 1$, meaning it belongs to $\geq 1$ cycles. In order for $v$ to belong to a cycle, it must have exactly 1 incoming and 1 outgoing edge. More generally, it will have 1 incoming and 1 outgoing edge for each cycle that it belongs to. This will always be an even number, and so the degree of each vertex is even. \\
+\linebreak
+\boldmath
+($\Leftarrow$) \unboldmath If all vertices in $F$ have even degree $\Rightarrow$ $F$ has a cycle decomposition. We can prove this using induction on $e(F)$. \\
+\linebreak 
+\textbf{Base case:} In the general case, the base case would be $e(F) = 0$ (as there are no edges, all vertices have degree 0, which is even, and so the graph has a cycle decomposition, which is an empty set). As $F$ is connected, the base case will never occur and we can skip to the inductive step. \\
+\linebreak 
+\textbf{Inductive hypothesis}: Suppose that $F$ has $< e(F)$ edges. There will exist a cycle decomposition. We can use this to shown that any graph $F$ with $e(F)$ edges has a cycle decomposition. \\
+\linebreak 
+As all vertices have even degree, there exists at least 1 cycle $C$. We can remove the edges of this cycle from $F$, and so our remaining graph is $F \setminus E(C)$. $F \setminus E(C)$ will have the same vertex set, and since we are removing an even number of edges, the resulting graph will also have only even degree vertices. \\
+\linebreak 
+We can continue to remove the cycles, each time adding $C$ to a set $\mathcal{C}$. Eventually we will have a graph on $n(F)$ vertices and 0 edges and we have shown that the graph has cycle decomposition $\mathcal{C}$.
+\\
+\linebreak 
+We have shown that the statement holds for any connected component, and will therefore hold for all connected components. $G$ has a cycle decomposition if and only if each of its connected components contains an Euler tour. \qed

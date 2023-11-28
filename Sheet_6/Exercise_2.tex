@@ -1,0 +1,52 @@
+\subsection*{Exercise 2}
+
+\boldmath
+\textbf{Let $G$ be a graph with no isolated vertex (that is, no vertex of degree 0). An edge cover of $G$ is a set $L$ of edges such that each vertex of $G$ is incident to an edge in $L$.}
+\unboldmath
+
+\begin{enumerate}[a)]
+    \boldmath
+    \item \textbf{Let $M$ be a maximum matching of $G$. Use $M$ to construct an edge cover of $G$ of size $n(G)-|M|$.} \\
+    \unboldmath
+    \linebreak 
+    As $M$ is maximum we know that $\forall v \in V(G)$, either $v$ is matched by an edge in $M$ or it is adjacent to another vertex $v'$ that is matched by an edge in $M$. \\
+    \linebreak 
+    We can construct the edge cover $L$ starting from the matching $M$. This means that to start $L = M$. If all vertices are accounted for, then we can stop. (In this case, the matching is a perfect matching using exactly $n/2$ edges, and so $|M| = |L|$ and $|M| + |L| = n(G)$.)\\
+    \linebreak 
+    If this is not the case we must extend the edge cover to account for all vertices. This can be done by iteratively applying the following steps: identify an uncovered vertex $v$ and add any adjacent vertex $v'$ (which will be matched by an edge in $M$ by definition) and add edge $vv'$ to $L$. \\
+    \linebreak
+    By this method, we are adding as many edges to $L$ as vertices not matched in $M$, which is equal to $n(G) - 2|M|$. In total, therefore, $|L| = |M| + (n(G) - 2|M|) = n(G) - |M|$ edges. 
+    \boldmath
+    \item \textbf{Let L be a minimum edge cover of $G$. Analyse the structure of the subgraph of $G$ induced by $L$ to construct a matching of size $n(G)-|L|$.} \\
+    \unboldmath
+    \linebreak 
+    In the induced subgraph, each edge has either 0 or 1 endpoints in common with another edge $e \in L$. We know that there can be no edge with both endpoints in common, as we constructed $L$ from $M$, and this would contradict the minimality of $L$. \\
+    \linebreak 
+    The edges with no endpoints in can be left as is, as they are independent of any other edge. We are interested in the edges with 1 endpoint in common, as they make the set not independent. \\
+    \linebreak 
+    When creating the edge cover, we added $n(G) - 2|M|$ edges to the matching, and so there are $n(G) - 2|M|$ structures (that are independent from any other) with two adjacent edges. From each of these we must remove 1 edge to creating a matching. So, we get: 
+    \begin{align}
+    \notag
+        |M| &= |L| - (n(G) - 2|M|) \\
+    \notag
+        |M| &= |L| - n(G) + 2|M| \\
+    \notag
+        -|M| &= |L| - n(G) \\
+    \notag
+        |M| &= n(G) - |L|
+    \end{align}
+    \boldmath
+    \item \textbf{Let $\alpha ' (G)$ denote the maximum size of a matching of $G$ and let $\beta ' (G)$ denote the minimum size of an edge cover of $G$. Conclude that $\alpha ' (G) + \beta ' (G) = n(G)$.} \\
+    \unboldmath \\
+    Let $M$ be the a maximum matching, $L$ a minimum edge cover, $\alpha '(G) = n(G) - |M|$ and $\beta'(G) = n(G) - |L|$. Then 
+    \begin{align}
+    \notag
+        n(G) - |M| + n(G) - |L| = n(G)& \\
+        \notag
+        -|M| -|L| = -n(G)& \\
+        \notag
+        |M| + |L| = n(G)& 
+    \end{align}
+In conclusion, $\alpha'(G) + \beta'(G) = n(G)$. \qed 
+\end{enumerate}
+

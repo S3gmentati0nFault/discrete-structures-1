@@ -1,4 +1,5 @@
-\section*{Exercise 1}
+\section*{Sheet 2}
+\subsection*{Exercise 1}
 \boldmath
 \textbf{Let $G$ be a graph.}
 \begin{enumerate}[a)]
@@ -6,8 +7,6 @@
     \unboldmath
     \\
     \linebreak 
-    %It should be noted that a cycle is also a path, with the extra condition that for a path $uPv, u=v$ the case that $u = v$, this does not hold.
-    %\boldmath
     To prove this we can use the handshaking lemma: ‘The number of vertices of odd degree in a graph is always even.’ (from \textit{Graph Theory} by Reinhardt Diestel, page 5)\\
     \linebreak 
     In the case that $G$ is connected, the statement holds trivially as by definition, $\exists$ a $uv$ path. Hence, we will take a disconnected graph $G$. \\
@@ -20,14 +19,12 @@
     \linebreak 
     By this contradiction, $u$ and $v$ must both be in the same component, i.e. $u, v \in V(G_1)$ or $u, v \in V(G_2)$ and so by definition $\exists$ a $uv$ path. Hence, for a graph containing vertices $u$ and $v$ as the only two vertices of odd degree, there must exist a $uv$ path. $\hspace{10mm} \square$ \\
     \linebreak 
-    %By the handshaking lemma, this is not possible, as the 
     \boldmath
     \item \textbf{Let $uv \in E(G)$. Prove that $uv$ belongs to at least $d(u)+d(v)-n(G)$ triangles in $G$. (A triangle is a cycle of length 3.)} 
     \unboldmath
     \\
     \linebreak 
     We can prove the statement by induction on the number of vertices in $G$, i.e. $n(G)$. \\
-    %Let $t(G, uv)$ denote the number of triangles in $G$ that $uv$ belongs to. \\
     \linebreak 
     Case 1: $n(G) = 2$: $G$ contains only vertices $u$ and $v$ as well as edge $uv$, meaning $d(u) = d(v) = 1$. So, $d(u)+d(v)-n(G) = 1 + 1 - 2 = 0$, which must hold as by definition there are too few vertices to form a cycle of length 3 (or any cycle for that matter). \\
     \linebreak 

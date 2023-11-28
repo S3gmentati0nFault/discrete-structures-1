@@ -1,0 +1,37 @@
+\subsection*{Exercise 2}
+\begin{enumerate}[a)]
+\boldmath
+\item \textbf{Prove or disprove: a tree contains at most one perfect matching.} \\
+\unboldmath
+\linebreak 
+\textbf{Proof}\\
+We can show that this claim holds for any tree $T$. \\
+\linebreak 
+A matching $M$ of a graph $G$ is an independent edge set of $G$, meaning that no edge $e \in E(M)$ shares common vertices. A matching $M$ is perfect if $V(M) = V(G)$ (i.e. every vertex is accounted for exactly once). \\
+\linebreak For a graph $G = (V, E)$, a perfect matching has size $\frac{|V(G)|}{2}$ and so in order for a graph to have a perfect matching it must have an even number of vertices.  \\
+\linebreak 
+\textbf{Case 1:} $T$ has an odd number of vertices. This means it cannot have a perfect matching and the claim holds. \\
+\linebreak 
+\textbf{Case 2}: $T$ has an even number of vertices. Assume, for a contradiction, that there exist two distinct perfect matchings $M_1$ and $M_2$ of $T$. We can show that these matchings are in fact the same.\\
+\linebreak
+Let $G$ be the graph of $M_1 \cup M_2$. As $M_1$ and $M_2$ are believed to be distinct, $\exists$ some edge $e \in E(G)$ that is $\in E(M_1)$ but $\notin E(M_2)$. This means there is some vertex $v$ of degree $\geq 2$. \\
+\linebreak 
+However, two distinct perfect matchings that share a vertex would have to alternate between edges $\in T$. This would eventually have to close a cycle in the graph. By definition, trees are acyclic, and so we know that $M_1$ and $M_2$ would have to be the same. \\
+\linebreak 
+In conclusion, we have shown that a tree $T$ contains at most one perfect matching. \qed
+\boldmath 
+\item \textbf{Let $G$ be a graph and suppose that $E(G)$ can be partitioned into two matchings. Show that $E(G)$ can be partitioned into two matchings whose sizes differ by at most one.} \\
+\unboldmath
+\linebreak 
+\textbf{Proof}\\
+As $E(G)$ can be split into two matchings, $\forall e \in E(G)$, $e \in M_1 \lor e \in M_2$ and $M_1 \cap M_2 = \emptyset$ (otherwise it is not a valid partitioning of the set $E(G)$). It also holds that every vertex has a maximum degree of 2, otherwise $E(G)$ cannot be split into exactly 2 matchings.\\
+\linebreak
+Suppose, for a contradiction, that $E(G)$ can be split into two matchings $M_1$ and $M_2$ where the sizes of the matchings differ by strictly more than 1. WLOG we can say that $|M_1| \geq |M_2| + 2$ if we say that $|M_2| = x$ then  $|M_1| \geq x + 2$. \\
+\linebreak 
+In order for both to be valid matchings, for any pair of edges that share a common vertex, one edge must belong to $M_1$ and the other to $M_2$ (otherwise they are not independent sets). \\
+\linebreak 
+Since $M_1$ is larger than $M_2$ there must be at least one edge $xy \in M_2$ that should actually be in $M_1$.\\
+\linebreak
+Thus in our case we will have that $M_1$ and $M_2$ have $x$ extremes in common and then we need to have at least two more edges that are incident to some other vertex. At this point, if the graph is disconnected and we have more than one component (disconnected from the main body of the graph) containing two vertices linked by one single edge in $M_2$, then the statement holds true, because we can move edges from $M_2$ to $M_1$ to even the balance. On the other hand, if we consider a generic connected graph, then we would be in the situation where an edge of matching $M_2$ insists on a vertex that is already extreme of some other edge in $M_2$, violating the definition of matching and making the statement absurd.\\
+This proves that, if we can partition the edge set with two matchings, the sizes of said matchings should differ for at most one edge. \qed
+\end{enumerate}

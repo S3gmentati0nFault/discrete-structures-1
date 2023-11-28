@@ -1,0 +1,42 @@
+\subsection*{Exercise 3}
+\begin{enumerate}[a)]
+    \boldmath
+    \item \textbf{Show that every graph $G$ contains a spanning bipartite subgraph $H$ with $e(H) \geq \frac{e(G)}{2}$.} \\
+    \unboldmath
+    \linebreak 
+    As $G$ is bipartite, $\exists$ two sets $A$ and $B$ s.t. $V(A) \cap V(B) = \emptyset$ and $V(A) + V(B) = V(G).$ \\
+    \linebreak 
+    We can use a contradiction to show that a spanning bipartite subgraph $H$ of $G$, if it exists, must contain $\geq \frac{e(G)}{2}$ edges. Assume that $e(H) < \frac{e(G)}{2}$. This means we have removed $> \frac{e(G)}{2}$ edges from $G$ and so, there exists some vertex $v$ s.t. $d_H(v) < \frac{d_G(v)}{2}$. \\
+    \linebreak 
+    Assuming $v \in A$, this means that $v$ has more neighbours in $A$ than in $B$. By maximality, this cannot hold, and so $\forall v \in G, d_H(v) \geq \frac{d_G(v)}{2}$. \\
+    \linebreak 
+    We can find $e(H)$ by summing over the degrees: $2e(H) = \Sigma_{v \in H} \: d_H(v) \geq \Sigma_{v \in H} \frac{d_G(v)}{2} = e(G)$. From this we get that $e(H) \geq \frac{e(G)}{2}$. \\
+    \linebreak 
+    With this degree requirement, we can construct a spanning bipartite subgraph $H$ as follows: 
+    \begin{enumerate}
+        \item  Partition $G$ arbitrarily into two disjoint sets $A$ and $B$ keeping all edges except edges between vertices that are both $\in A$ or both $\in B$.
+        \item If the partition is such that for any vertex $v$, $d_H(v)$, we can move this vertex from $A$ to $B$ or from $B$ to $A$, depending on which set it was initially in. 
+    \end{enumerate}
+    This algorithm must terminate, as the graph is finite, and as $A \cap B = \emptyset$, we know we have constructed a spanning tree with at least $\frac{e(G)}{2}$ edges.  \qed 
+    \item \textbf{Can you improve this bound if G is $2k + 1$-regular for some integer $k \geq 1$?} \\
+    \unboldmath
+    \linebreak 
+    We know that as $G$ is bipartite and $k$-regular, for a bipartition $(A, B)$ of $G$, $|A| = |B| = \frac{1}{2}|V(G)|$. \\
+    \linebreak 
+    WLOG, $e(G) = (2k+1)\cdot|A| = (2k+1)\cdot\frac{1}{2}\cdot|V(G)|$. We also know that, as $G$ is $2k+1$-regular, $|V(G)| \geq 2k+1+1 = 2k+2$. \\
+    \linebreak 
+    As $e(H) \geq \frac{1}{2}e(G)$:
+    \begin{align}
+    \notag
+    e(H) &\geq \frac{1}{2}((2k+1)\cdot\frac{1}{2}\cdot|V(G)| \\
+    \notag
+    & \geq \frac{1}{2}((2k+1)\cdot(\frac{1}{2}\cdot|V(G)|)) \\
+    \notag
+    & \geq \frac{1}{4}\cdot(2k +1)\cdot|V(G)| \\
+    & \geq \frac{1}{4}\cdot(2k +1)\cdot(2k+2) \\
+    \notag
+    & \geq (k+1)(k+\frac{1}{2})
+    \end{align}
+    Therefore, if $G$ is $2k+1$-regular, a spanning bipartite subgraph $H$ has at least $(k+1)(k+\frac{1}{2})$ edges. 
+    \qed  
+\end{enumerate}

@@ -1,31 +1,16 @@
 \subsection*{Exercise 4}
 \boldmath
-\textbf{Prove or disprove: If $e$ is an edge of a connected graph $G$, then $e$ belongs to some spanning tree
-of $G$.\spacer 
-Proof}
+\textbf{Prove or disprove: If $e$ is an edge of a connected graph $G$, then $e$ belongs to some spanning tree of $G$.\spacer 
+Proof} \\
 \unboldmath
-%A graph $G$ is connected if there exists a $uv$ path $\forall u, v \in V(G)$. \\
-%\linebreak 
-%A spanning tree $T$ of $G$ is a subset of edges such that these span all vertices of $G$. It has a tree structure, meaning it is: i) minimally connected, ii) maximally acyclic, iii) $\forall u,v \in V(T) \exists$ a unique $uv$ path iv) \\
-%\linebreak 
-%Assume that there exists some spanning tree $T$ of $G$ that does not contain $e$. This means that $G - e$ is still connected. \\
-%\linebreak 
-
-Let $G'$ be the result of removing $e$ from graph $G$. $G'$ can be either connected or disconnected. \\
-\linebreak 
-%In both cases, there must exist some spanning tree $T$ of $G$ containing edge $G$. \\
+Let $G'$ be the result of removing $e$ from graph $G$. $G'$ can either be connected or disconnected. \\
+\linebreak
 \textbf{Case 1}: $G'$ is disconnected \\
 If $G$ disconnects the graph, it means there is no longer a $uv$ path $\forall u,v \in V(G)$, which also means there cannot be a spanning tree of $G$ (as not all vertices are accounted for). This means that $e$ was a so-called \textit{bridge} edge, and by definition is contained in every spanning tree $T$ of $G$. As $e$ is contained in all spanning trees, it is contained in some spanning tree. \\
 \linebreak 
 \textbf{Case 2}: $G'$ is connected \\
-As $G'$ is still connected, we know by definition there exists some spanning tree $T$ not containing the edge $e$. This means there exists a path $P = T + e$. By theorem 1.15, we know trees, and therefore, spanning trees, are maximally acylic. So, adding $e$ to $T$ creates a cycle (which contains $e$), meaning $P$ contains exactly one cycle. \\
+As $G'$ is still connected, we know by definition there exists some spanning tree $T$ not containing the edge $e$. Since $T$ is a spanning tree, $V(G) = V(T)$, since a tree is minimally connected and maximally acyclic (by theorem 1.15) we cannot add the edge $e$ without closing a cycle $\cycl{C}$. \\
 \linebreak 
 Let $x$ be some edge in the cycle $\cycl{C}$ that is not $e$. We can remove $x$ from the cycle $\cycl{C}$ and be left with a path $Y$ that connects all vertices $u, v \in \cycl{C}$. Although we changed the structure of the spanning tree $T$ the connectivity still holds, thus we have built a different spanning tree $T'$, containing $e$ starting from $T$. \\
 \linebreak
 That proves the thesis. \qed
-%Finally, to show that then, there exists some spanning tree containing $P'$ and so $e$, we must show it is not possible that removing $x$ disconnected the original graph $G$. \\
-%\linebreak 
-%We can prove this easily using a contradiction. Let's assume that 
-%So, we we know that $P$ contains exactly one cycle. 
-%G-e$. Removing edge $e$ from $G$, resulting in $G'$, can result in the graph e
-

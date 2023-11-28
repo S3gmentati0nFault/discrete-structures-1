@@ -42,13 +42,11 @@ if their intersection has size precisely $k-1$.}
 This results in the graph $G$, where $|V| = 10$ and $|E| = 30$ : \\
 \begin{center}
     \begin{tikzpicture}
-    \tikzset{% This is the style settings for nodes
+    \tikzset{
     dep/.style={circle,minimum size=0.75cm,fill=orange!20,draw=orange},
     c1/.style={-},
     c2/.style={dotted, red, line width=2},
-    %c2/.style={orange}, 
     }
-    % Nodes
     \node[dep] (n1) at (0,0) {$v_1$};
     \node[dep] (n2) at (1,1.5) {$v_2$};
     \node[dep] (n3) at (3,3) {$v_3$}; 
@@ -59,7 +57,7 @@ This results in the graph $G$, where $|V| = 10$ and $|E| = 30$ : \\
     \node[dep] (n8) at (5.5,-3) {$v_8$};
     \node[dep] (n9) at (3,-3) {$v_9$};
     \node[dep] (n10) at (1,-1.5) {$v_{10}$};
-    %Edges
+    
     \draw[c1] (n1) edge node[above] {} (n2);
     \draw[c1] (n1) edge node[above] {} (n3);
     \draw[c1] (n1) edge node[above] {} (n4);
@@ -105,7 +103,7 @@ This results in the graph $G$, where $|V| = 10$ and $|E| = 30$ : \\
     \item \textbf{Show that $J(n, k)$ and $J(n, n-k)$ are isomorphic for any $0 \leq k \leq n.$} \\ 
     \linebreak 
     \unboldmath
-    We know that $\binom{n}{k} = \binom{n}{n-k}$ as so $|V|$ will be equal for both. Then, to show the graphs are isomorphic, we must find the isomorphism $\phi$ that preserves the structure of the graph. An isomorphism is just a one to one mapping between two sets. Any binary relation defined on the set is preserved through the isomorphism.\\
+    We know that $\binom{n}{k} = \binom{n}{n-k}$ as so $|V|$ will be equal for both. Then, to show the graphs are isomorphic, we must find the isomorphism $\phi$ that preserves the structure of the graph. An isomorphism is just a one to one mapping between two sets. Any binary relation defined on the set is preserved through the isomorphism\footnote{\href{https://www.britannica.com/science/isomorphism-mathematics}{https://www.britannica.com/science/isomorphism-mathematics}}.\\
     \linebreak 
     Let $G_1$ be the graph $J(n,k)$ and $G_2$ the graph $J(n, n-k)$. We know that $\forall v \in V(G_1) \:\: \exists w \in V(G_2) \:\: s.t.\:\: v \cup w = [n]$  and so the bijective mapping is as follows: \\
     \linebreak 
