@@ -29,7 +29,22 @@ def index_generator():
                     file.write("\include{./Sheet_" + str(sheet) + "/Exercise_" + str(count) + "}\n")
                     count += 1
             sheet += 1
+
+def clean_up():
+    dir_path = "."
+
+    for path in os.listdir(dir_path):
+        current_path = os.path.join(dir_path, path)
+        if os.path.isdir(current_path):
+            for path in os.listdir(current_path):
+                file_name, file_extention = os.path.splitext(os.path.join(current_path, path))
+                if file_extention == ".aux":
+                    os.remove(os.path.join(current_path, path))
+        else:
+            file_name, file_extention = os.path.splitext(current_path)
+            if file_extention == ".dvi" or file_extention == ".synctex.gz":
+                os.remove(current_path)
                     
 
 
-index_generator()
+clean_up()
