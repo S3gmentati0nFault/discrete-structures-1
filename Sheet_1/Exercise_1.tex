@@ -2,85 +2,16 @@
 \subsection*{Exercise 1}
 \boldmath
 \textbf{A graph is \textit{connected} if, for any vertices $u, v \in V(G), G$ contains a $u - v$ path.\\
-Prove that a graph or its complement is connected, possibly both.}\vspace{10pt}\\
+Prove that a graph or its complement is connected, possibly both.\\
+\linebreak
+Proof\\}
 \unboldmath
-To solve the exercise we will just provide two different proofs, the first one is the following:\vspace{5pt}\\
-\boldmath
-\textbf{$G$ disconnected $\implies$ $G'$ connected}\vspace{5pt}\\
-\unboldmath
-If we make the assumption that the graph $G$ is disconnected, then $G$ contains at least two connected components.\\
-If we now build the complementary graph to $G$, $G'$, we will have an edge $\forall v, u : v \in V(A) \land u \in V(B)$; where $A$ and $B$ are actually the two connected components we were talking about earlier.\\
-Since we are saying that we will have an edge between any two pairs of vertices in $V(G)$ then we are saying that $G'$ is actually connected (the most basic form of connection because we have an actual edge between every single pair).
-\vspace{2pt}\\\hspace*{3cm}$\square$\vspace*{10pt}\\
-\boldmath
-\textbf{$G$ connected $\implies G'$ connected $\vee\hspace{3pt} G'$ disconnected}\vspace{5pt}\\
-\unboldmath
-To prove this second point we will use counterexamples. \\
-\begin{center}
-    \begin{tikzpicture}
-    \tikzset{
-    dep/.style={circle,minimum size=0.75cm,fill=orange!20,draw=orange},
-    c1/.style={-},
-    c2/.style={dotted, red, line width=2},
-    }
-    \node[dep] (n1) at (0,0) {$v_1$};
-    \node[dep] (n2) at (3,0) {$v_2$};
-    \node[dep] (n3) at (1.5,3) {$v_3$}; 
-
-    \draw[c1] (n1) edge node[above] {} (n2);
-    \draw[c1] (n1) edge node[above] {} (n3);
-    \draw[c1] (n2) edge node[above] {} (n3);
-\end{tikzpicture}   
-\hspace*{3cm}
-\begin{tikzpicture}
-    \tikzset{
-    dep/.style={circle,minimum size=0.75cm,fill=orange!20,draw=orange},
-    c1/.style={-},
-    c2/.style={dotted, red, line width=2},
-    }
-    \node[dep] (n1) at (0,0) {$v_1$};
-    \node[dep] (n2) at (3,0) {$v_2$};
-    \node[dep] (n3) at (1.5,3) {$v_3$}; 
-\end{tikzpicture}  
-\end{center}
-In the case above we start with a connected graph and we get a disconnected complementary graph.\vspace{15pt}\\
-\begin{center}
-    \begin{tikzpicture}
-    \tikzset{
-    dep/.style={circle,minimum size=0.75cm,fill=orange!20,draw=orange},
-    c1/.style={-},
-    c2/.style={dotted, red, line width=2},
-    }
-    \node[dep] (n1) at (0,0) {$v_1$};
-    \node[dep] (n2) at (3,0) {$v_2$};
-    \node[dep] (n3) at (0,-1.5) {$v_3$}; 
-    \node[dep] (n4) at (1.5,-3) {$v_4$};
-    \node[dep] (n5) at (3,-3) {$v_5$}; 
-
-    \draw[c1] (n1) edge node[above] {} (n3);
-    \draw[c1] (n2) edge node[above] {} (n3);
-    \draw[c1] (n3) edge node[above] {} (n4);
-    \draw[c1] (n2) edge node[above] {} (n5);
-    \draw[c1] (n4) edge node[above] {} (n2);
-\end{tikzpicture}   
-\hspace*{3cm}
-\begin{tikzpicture}
-    \tikzset{
-    dep/.style={circle,minimum size=0.75cm,fill=orange!20,draw=orange},
-    c1/.style={-},
-    c2/.style={dotted, red, line width=2},
-    }
-    \node[dep] (n1) at (0,0) {$v_1$};
-    \node[dep] (n2) at (3,0) {$v_2$};
-    \node[dep] (n3) at (0,-1.5) {$v_3$}; 
-    \node[dep] (n4) at (1.5,-3) {$v_4$};
-    \node[dep] (n5) at (3,-3) {$v_5$}; 
-    
-    \draw[c1] (n1) edge node[above] {} (n2);
-    \draw[c1] (n1) edge node[above] {} (n4);
-    \draw[c1] (n1) edge node[above] {} (n5);
-    \draw[c1] (n3) edge node[above] {} (n5);
-    \draw[c1] (n4) edge node[above] {} (n5);
-\end{tikzpicture}  
-\end{center}
-It is perfectly clear that, while the starting graph is connected, the complementary is still connected itself.
+Let's suppose, for a contradiction, that neither $G$ nor $\compl{G}$ are connected.\\
+\linebreak
+We can suppose, without loss of generality, that $G$ is composed by two or more connected components, we will call the connected components $G_1, \dots, G_k$. Since $G$ is not connected the edges linking the various connected components are missing.\\
+Due to how the complementation operation carries out, inside $\compl{G}$ all of the vertices from $G_1$ will be connected to all of the vertices from $G_2, \dots, G_k$, if that weren't true $G$ would already be connected and that would contradict our hypothesis.\\
+What I showed for component $G_1$ can be extended to all the other $k$ components.\\
+\linebreak
+Since all of the vertices in the $i$-th component are connected to all of the other vertices in the graph apart from the ones inside the $i$-th component, $\compl{G}$ is trivially connected and we reached an absurd.\\
+\linebreak
+The same can be concluded if $\compl{G}$ is not connected. If we consider the case in which either $G$ or $\compl{G}$ are connected, as long as the starting graph is missing, at least, $|V(G)|$ edges in $E(G)$ then its complement will be connected as well\footnote{If we suppose $|V(G)| = n$ and we suppose that the previous statement weren't true and that $G$ was missing exactly $n$ edges to make it complete. If we take the subgraph $G'$ formed just by the missing edges and the vertices insisting on those edges, it would mean that $G'$ would not be connected, and that is only possible if the amount of vertices in $G$ is greater than $n$. Because we would need at least an edge linking two vertices out of reach for the main component, thus we reached an absurd because the amount of vertices in $G$ is exactly $n$.}.\qed
