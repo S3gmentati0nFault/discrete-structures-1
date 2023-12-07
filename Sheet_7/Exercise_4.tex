@@ -1,0 +1,34 @@
+\subsection*{Exercise 4}
+\boldmath\textbf{We call a sequence of graphs $K_1 = G_1 \subsetneq \dots \subsetneq G_k$ a \textit{closed ear decomposition} if, for all $i \in [k - 1]$, the graph $G_{i + 1}$ can be obtained from $G_i$ by adding a $G_i$-path or a cycle that meets exactly one vertex of $G_i$.\\
+Prove that a graph $G$ has a closed ear decomposition $G_1 \subsetneq \dots \subsetneq G_k = G$ (with $k \geq 2$) if and only if $G$ is $2$-edge-connected\\
+\linebreak
+Proof $(\implies)$}\\
+\unboldmath
+\textbf{\underline{Reminder:}} A graph $G$ is $2$-edge-connected $\iff$ removing one edge from $E(G)$ doesn't make it disconnected.\\
+I can prove the forward implication by induction on the dimension of the graph. Let's suppose we have a graph $G$ and an ear decomposition for $G$ which is $K_1 = G_1 \subsetneq \dots \subsetneq G_k$.\\
+\linebreak
+\textbf{Base case:} If $G$ is composed by a single node, $G$ has a trivial closed ear decomposition, furthermore the graph is trivially $2$-edge-connected.\\
+\linebreak
+\textbf{Induction Hypothesis:} Let's suppose that a generic $G \st |V(G)| = n$ has a closed ear decomposition $K_n = G_1 \subsetneq \dots \subsetneq G_k$ and thus is $2$-edge-connected.\\
+\textbf{Inductive case:} Let's suppose we have a graph $G'$ which is built from $G$ in such a way that $V(G') = V(G) \cup \{x\}$ and $E(G')$ is built from $E(G)$ in such a way that $G'$ has a closed ear decomposition $K_{n + 1} = G_1 \subsetneq \dots \subsetneq G_{k + 1}$.\\
+\linebreak
+Let's suppose that, by contradiction, $G'$ is not $2$-edge-connected anymore.\\
+Because of how we built $G'$, the graph still has a closed ear decomposition and is built starting from the decomposition for $G$. Since the set of vertices is unchanged apart from the addition of $x$ and we added enough edges to make sure that the $x$ could be part of an ear that linked it to the main body of $G$, $x$ is either part of a cycle $\cycl{C}$ that meets only one vertex of $G_k$ or is inside a path $P$ linking two vertices $u, v$ in $G_k$.
+\begin{itemize}
+    \item If $x$ is inside a cycle, the cycle is by definition $2$-edge-connected, thus adding the $2$-edge-connected cycle ($\cycl{C}$) to the $2$-edge-connected graph $G$ through an articulation point (i.e. one single vertex) makes $G'$ $2$-edge-connected.
+    \item If $x$ is inside a path $P$ having extremes $x, y \in G_k$, then $G'$ is still $2$-edge-connected because if we remove one of the edges in $P$ all of the vertices in $V(P)$ are still connected to $G_k$.
+\end{itemize}
+The above contradicts our hypothesis of having $G'$ disconnected, thus if $G$ has a closed ear decomposition it is a $2$-edge connected graph.\qed\\
+\linebreak
+\boldmath
+\textbf{Proof $(\impliedby)$}
+\unboldmath\\
+Let's suppose we have a graph $G$ and its closed ear decomposition $G_1 \subsetneq \dots \subsetneq G_k$, where $k$ is maximum. We want to show that $G_k = G$.\\
+\linebreak
+Suppose for a contradiction that $G_k \neq G$, suppose there is an edge $xy \in E(G) \setminus E(G_k)$, with $x, y \in V(G_k)$, then $xy$ is clearly a $G_k$-path, so we could add this ear to the decomposition, contradicting the maximality of $k$.
+Since $G_k \neq G$ then $G_k$ is an induced subgraph of $G$, then $V(G) \setminus V(G_k) = V(G') \neq \emptyset$.\\
+Where $G'$ is the subgraph containing all of the vertices that are not in $G_k$. Let's suppose that $x, y \in G_k$, then all the vertices in $G'$ will be connected to both $x$ and $y$ via paths in $G$, that is because $G$ is $2$-edge-connected by hypothesis.\\
+\linebreak
+Because of that we can build a path $P$ connecting $x, y$ and at least one vertex $v \in V(G')$ which has a neighbour $u \in V(G_k)$. Since $G$ is $2$-edge-connected $G - vu$ is still connected, thus there exists a path $P$ from $v$ to $V(G_k)$ in $G - vu$.
+By taking such a minimum path, we may assume that the internal vertices of $P$ lie outside $G_k$. Note that since $u \in V(G_k)$ and $v$ and $V(P)$ are vertices of $G'$ then $xPy$ is an $G_k$-path, but that means that we can build a ear decomposition $G_1 \subsetneq \dots \subsetneq G_k \subsetneq G_{k + 1}$ which is bigger than the previous, but that contradicts the maximality hypothesis for $k$.\\
+This means that if we have a $2$-edge-connected graph we can build a closed ear decomposition. \qed

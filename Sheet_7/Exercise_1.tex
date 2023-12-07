@@ -1,0 +1,43 @@
+\section*{Sheet 7}
+\subsection*{Exercise 1}
+\begin{enumerate}[label=\textbf{(\alph*)}]
+\boldmath
+    \item\textbf{Let $\nat_{odd}$ be the set of odd natural numbers. Give a function $f: \nat_{odd} \rightarrow \nat$ such that the following statement holds: For any $k \in \nat_{odd}$, any $k$-regular $f(k)$-edge-connected graph $G$ has a perfect matching. Prove this statement for your choice of $f$.\\
+    \linebreak}
+    \unboldmath
+    Let $f(k)=k-1$. Then, $\forall \:\: k \in \mathbb{N}_{odd}$ any $k$-regular graph that is $(k-1)$-edge-connected has a perfect matching. \\
+    \linebreak 
+    \textbf{Proof} \\
+    We will show that Tutte's theorem, which is a necessary and sufficient condition for a perfect matching, holds. Tutte's theorem: $G$ has a perfect matching iff $q(G-S) \geq |S| \:\: \forall \:\: S \subseteq V(G)$. \\
+    \linebreak 
+    Let $\mathcal{C}$ be the set of odd components of $G-S$. For any $c \in \mathcal{C}$:
+    \begin{equation}
+        k\cdot n(G) = \sum_{v \in V(G)} = 2|E(C)| + |E(C,S)|
+        \label{eq1}
+    \end{equation}
+    where $E(C, S)$ denotes the set of edges between components $C$ and $S$.
+    We know that $|E(C, S)|$ must be $\geq k-1$ (otherwise the graph is not $k-1$-edge-connected). In fact, it must be odd, and so it is $\geq k$.
+    We can then substitute expression \ref{eq1} into Tutte's theorem to obtain:
+    \begin{align}
+        k\cdot |S| &\geq \sum_{c \in \mathcal{C}} |E(C, S)| \geq k \cdot|\mathcal{C}| = k\cdot q(G-S)
+    \end{align}
+    From this it follows that $|S| \geq q(G-S)$. As Tutte's theorem holds, it holds that $\forall \:\: k \in \mathbb{N}_{odd}$ any $k$-regular graph that is $(k-1)$-edge-connected has a perfect matching. \qed
+    \boldmath
+    \item\textbf{Let $\nat_{even}$ be the set of even natural numbers. Justify that there does not exist a function $g: \nat_{even}$ such that the following statement holds:
+    For any $k \in \nat_{even}$, any $k$-regular $f(k)$-edge-connected graph $G$ has a perfect matching.\\
+    \linebreak
+    Proof} \\
+    \unboldmath
+   In the case that we would remove only edges adjacent to 1 vertex $v$, we can remove at most $d(v)-1$ edges for the graph to remain connected. So, in a $k$-regular graph, the maximum edge connectivity is $k$. This means $f(k) \leq k$. \\
+   \linebreak 
+   In fact, we know that in order for $G$ to have a perfect matching Tutte's theorem must hold. Using a similar approach a), we know that $|E(C,S)| \geq f(k)$ and $\forall \:\:  S, \:\: k|S| \geq f(k) q(G-s)$. From this it follows that $f(k) \geq k$. \\
+   \linebreak 
+   Combining $f(k) \geq k$ and $f(k) \leq k$, we know the only appropriate function can be $f(k) = k$. However, this function does not hold for all even values of $k$. Take $k=2$, any odd-length cycle is both 2-regular and 2-edge connected but does not contain a perfect matching as it has an odd number of vertices. \qed 
+    \item\textbf{Can you identify which part of the proof for the odd case does not carry through to the even case?} \\
+    \linebreak 
+    In the $k$ is odd case, $|V(G)|$ must be even, but in the $k$ is even case, $|V(G)|$ can be odd. \\
+    \linebreak 
+    The difference in proofs for the two cases is in the step where we find that $k\cdot n(G) = \sum_{v \in V(G)} = 2|E(C)| + |E(C,S)|$. In the odd case, $E(C,S)$ $\neq \emptyset$, as $E(C,S)$ must be odd. However, in the even case, $|E(C,S)|$ can be $=0$ (as a result of $S = \emptyset$). \\
+    \linebreak 
+    However, in the case that $S = \emptyset$, the statement $k\cdot n(G) = \sum_{v \in V(G)} = 2|E(C)| + |E(C,S)|$ does not hold. \qed
+\end{enumerate}

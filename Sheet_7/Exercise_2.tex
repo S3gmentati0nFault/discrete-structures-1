@@ -1,0 +1,53 @@
+\subsection*{Exercise 2}
+\boldmath\textbf{Show that a graph $G$ contains a matching which covers at least $2k$ vertices if and only if $q(G - S) \leq |S| + |V(G)| - 2k$ for all sets $S \subseteq V(G)$\\
+\linebreak
+Proof $(\implies)$} \unboldmath If $G$ contains a matching which covers at least $2k$ vertices then $q(G - S) \leq |S| + |V(G)| - 2k$ for all sets $S \subseteq V(G)$\\ 
+\linebreak
+Let's suppose by contradiction that the thesis doesn't hold. That means that $\exists S \subseteq V(G)$ such that
+\begin{equation*}
+    q(G - S) > |S| + |V(G)| - 2k
+\end{equation*}
+where:
+\begin{itemize}
+    \item $q(G - S)$ is the number of odd-components (connected component with an odd number of vertices)
+    \item $|V(G)| - 2k$ is the number of unmatched vertices in $G$
+\end{itemize}
+Let's suppose our matching maximal.\\
+\linebreak
+We know that to any unmatched vertex corresponds an odd-component, thus:
+\begin{equation*}
+    q(G) = |V(G)| - 2k
+\end{equation*}
+By hypothesis there is a set of vertices $S$ that we can remove from $|V(G)|$ without breaking the matching, that implies that we will still be covering at least $2k$ vertices.\\
+The only way we can remove vertices from $G$ without removing vertices from the matching is by removing unmatched vertices. Whenever we remove an unmatched vertex the odd-component becomes even, thus:
+\begin{equation*}
+    q(G - S) \leq (|V(G)| - 2k) - |S|
+\end{equation*}
+If that weren't true we would be having more odd-components after removing vertices from $V(G)$, but that can only happen if we are removing vertices from even components because:
+\begin{itemize}
+    \item The matching is supposed maximal.
+    \item Every even-component has a perfect matching, then all of the vertices are matched.
+\end{itemize}
+But
+\begin{equation*}
+    q(G - S) \leq (|V(G)| - 2k) - |S| \leq (|V(G)| - 2k) + |S|
+\end{equation*}
+Thus
+\begin{equation*}
+    q(G - S) \leq (|V(G)| - 2k) + |S|
+\end{equation*}
+And we reached an absurd, because we supposed the opposite thus if a graph $G$ contains a $2k$-matching the number of odd components in $G - S$ is $|S| + |V(G)|$. \qed\\
+\linebreak
+\boldmath
+\textbf{Proof} $(\impliedby)$ \unboldmath If $q(G - S) \leq |S| + |V(G)| - 2k$ for all sets $S \subseteq V(G)$ then $G$ contains a matching which covers at least $2k$ vertices. \\
+\linebreak
+The proof for this section is almost certaintly relying on Gallai-Edmonds decomposition, but we couldn't find a way to prove that formally.
+The idea would be the following, supposing that point 1, 2, 3 and 3' hold for Gallai-Edmonds decomposition, then we can apply the \textit{Lemma 2.8} that states that if the above condition holds then $G$ has a matching which covers all but at most
+\begin{equation*}
+    q(G - S) - |S|
+\end{equation*}
+vertices, but our hypothesis tells us that $q(G - S) \leq (|V(G)| - 2k) + |S|$, thus we have a matching that covers at most
+\begin{equation}
+    (|V(G)| - 2k) + |S| - |S| = |V(G)| - 2k
+\end{equation}
+Which is exactly what we want to prove. \qed
