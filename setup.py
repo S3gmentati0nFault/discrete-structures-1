@@ -3,8 +3,9 @@ import os
 def file_generator():
     sheet = input("Input the number of the current sheet: ")
     number_of_exercises = int(input("Input the number of exercises: "))
+    os.mkdir("Sheet_" + str(sheet))
     for i in range(number_of_exercises):
-        with open("Exercise_" + str(i + 1) + ".tex", "w") as file:
+        with open("./Sheet_" + str(sheet) + "/Exercise_" + str(i + 1) + ".tex", "w") as file:
             if i + 1 == 1:
                 file.write("\section*{Sheet " + sheet + "}\n")
             file.write("\subsection*{Exercise " + str(i + 1) + "}")
@@ -46,5 +47,4 @@ def clean_up():
                 os.remove(current_path)
                     
 
-
-clean_up()
+file_generator()
