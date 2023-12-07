@@ -7,7 +7,7 @@ content.
 <br>
 <h2>Work in progess: </h2>
 
-- [ ] Exercise 1 sheet 1
+- [x] Exercise 1 sheet 1
 
 - [ ] Exercise 2 sheet 1
 
