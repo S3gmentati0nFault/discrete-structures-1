@@ -31,6 +31,16 @@ content.
 
 - [ ] Exercise 5 sheet 4
 
+- [ ] exercise 4A sheet 5
+
+- [ ] Exercise 1 sheet 6
+
+- [ ] Exercise 2 sheet 6
+
+- [ ] Exercise 3C sheet 6
+
+- [ ] Exercise 4 sheet 6
+
 In general it would be also nice if we were able, in the production of our solutions, to stick to
 some kind of code etiquette, but we still have to choose what to do with it, most of the Latex code
 here contained doesn't respect best practices (e.g. don't use the "\\\\" command outside of math-mode
