@@ -1,0 +1,17 @@
+\subsection*{Exercise 2}
+\textbf{Prove König’s theorem (Theorem 2.2 from the notes) using Menger’s theorem (Theorem 3.6 from the notes).\\\linebreak Proof\\}
+\unboldmath
+Let's consider a bipartite graph $G$ defined on a bipartiton $(A, B)$, let's suppose that Menger's theorem holds for $G$, then we know that:
+\begin{itemize}
+    \item There are $k$ vertex-disjoint $A-B$ paths in $G$
+    \item There is no separator of size $< k$
+\end{itemize}
+Let's now build a bipartite graph $G'$ on bipartition $(A', B')$ such that 
+\begin{itemize}
+    \item $V(G') = V(G) \cup \{u, v\}$, in particular $V(A') = V(A) \cup \{u\}$ and $V(B') = V(B) \cup \{v\}$
+    \item $E(G')$ is the set of edges in which we add all the possible edges between $u$ and $V(B)$ and $v$ and $V(A)$.
+\end{itemize}
+Let's take a matching $M$ for $G$ and suppose it maximum. Because of how we built $G'$, for every pair of vertices $(x, y) \st x \in V(A), y \in V(B), xy \in M$ we are going to have edges $vx, yu \in E(G')$. The path $v-x-y-u$ is an $u-v$ path which is internally disjoint from all other $u-v$ paths since the central $xy$ edge is in the matching (if the paths weren't internally disjoint we would have two edges in the matching insisting on the same vertex). Therefore we are going to have $|M|$ internally vertex disjoint paths between $u$ and $v$.\\\linebreak
+By Menger's theorem we know that we do not have a separator of size $< k$ for $G$; That implies that for $G'$ this property still holds, just because we added a fully connected layer consisting of $u, v$ and the connections to, respectively, $V(B)$ and $V(A)$. That implies, by \textit{Corollary 3.8}, that we have $k$ internally disjoint $u - v$ paths in $G'$, meaning that the size of our matching is $k$.\\\linebreak
+Moreover Menger's theorem asserts that we have $k$ vertex-disjoint $A-B$ paths if and only if there is no separator of size $< k$. Which means that there is no vertex set of size smaller than $k$ that separates $A$ and $B$. If we call $X \subseteq V(G)$ one of the $A-B$ separators of size $= k$,  all edges between $A$ and $B$ are incident to $X$, but since $G$ is bipartite the only edges in $G$ will be between the two bipartitions, thus $X$ is the minimum vertex cover for $G$. Thus the minimum vertex cover is of size $k$.\\\linebreak
+But that proves our thesis because both the minimum vertex cover and the maximum matching have the same size $k$. Thus we have proven König theorem starting from Menger's theorem. \qed

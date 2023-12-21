@@ -1,0 +1,15 @@
+\subsection*{Exercise 2}
+\boldmath
+\textbf{Let $G$ be a $3$-connected graph and $e = xy \in E(G)$. Prove that $G/e$ is $3$-connected if and only if $G - x - y$ is $2$-connected.\\\linebreak Proof\\}
+\unboldmath
+\textbf{ \boldmath
+($\Rightarrow$) If $G/e$ is $3$-connected $\Rightarrow$ $G-x-y$ is 2-connected. \unboldmath} \\
+\linebreak 
+We can rewrite $G-x-y$ as $G/e - v_{xy}$. As $G/e$ is 3-connected, and in $G/e - v_{xy}$ we are removing 1 more vertex, it follows that $G-x-y$ is 2-connected by definition. \qed \\
+\linebreak 
+\textbf{ \boldmath
+($\Leftarrow$) If $G - x - y$ is 2-connected $\Rightarrow$ $G/e$ is $3$-connected \unboldmath} \\
+\linebreak
+Assume, for a contradiction, that $G/e$ is not 3-connected. This means that the following holds: there exists some separator $X$ of size $ = 2$ for the graph $G/e$. It must be that $v_{xy} \in V(X)$, and so there exists an additional vertex $z$ (that is not $x$ or $y$) s.t. $\{v_{xy}, z\}$ is a separator for $G/e$. \\
+\linebreak 
+As in the proof in the other direction, $G-x-y = G/e - v_{xy}$. 

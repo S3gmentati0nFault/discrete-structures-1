@@ -1,0 +1,23 @@
+\section*{Sheet 8}
+\subsection*{Exercise 1}
+\boldmath
+\textbf{Let $k \geq 2$. Show that any connected $k$-regular bipartite graph is $2$-connected.\\\linebreak Proof\\}
+\unboldmath
+Let $G$ be a connected $k$-regular bipartite graph with bipartition $(A, B)$. As $k \geq 2$ and $G$ is bipartite, $n(G) \geq 4$ (a 2-regular graph on 3 vertices forms an odd cycle and so is not bipartite). As $G$ is $k$-regular, $|A| = |B|$. \\
+\linebreak 
+Assume for a contradiction that $G$ is not 2-connected. This means there exists a single cut vertex $v$ whose removal disconnects the graph. We will assume, without loss of generality, that $v \in A$. \\
+\linebreak 
+We know that $G-v$ is disconnected with $|A| = |B|-1$. As $G-v$ is disconnected, there exist $\geq 2$ connected components. \\
+\linebreak 
+Let $G' \subseteq G-v$ such that it is connected and bipartite, with partition $(A', B')$. It is possible that are multiple ways to form $G'$ as we have $\geq 2$ components but we know that there exists some $G'$ s.t. $|A'| \geq |B'|$. This must hold as if for all $G'$, $|A'| < |B'|$, then $A < |B| - 1$, which cannot hold due to the $k$-regularity of the graph. \\
+\linebreak 
+As $v \in A$, all vertices in $A'$ still have $k$ neighbours. However, as $G'$ is bipartite, $v$ has at least one neighbour in $B'$. Therefore, there exists at least one vertex in $B'$ that has a degree $ < k$. As $(A', B')$ is a bipartition, we know that: 
+\begin{equation}
+    \sum_{a \in A'} deg(a) = \sum_{b \in B'} deg(b)
+    \label{bip}
+\end{equation}
+However, as $B'$ has at least 1 less edge than $B$, we know that
+\begin{equation}
+    \sum_{a \in A'} deg(a) = k|A'| \text{  and  } \sum_{b \in B'} deg(b) < k|B'|
+\end{equation}
+As $|A'| \geq |B'|$, \ref{bip} cannot be satisfied as so we have a contradiction. In conclusion, any connected $k$-regular bipartite graph is 2-connected. \qed

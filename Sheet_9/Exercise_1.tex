@@ -1,0 +1,43 @@
+\section*{Sheet 9}
+\subsection*{Exercise 1}
+\begin{enumerate}[label=\textbf{(\alph*)}]    \boldmath
+    \item \textbf{Suppose $G$ is a graph with $|V(G)| = n \geq k + 1$ and $\delta(G) \geq \frac{(n + k - 2)}{2}$. Prove that $G$ is $k$-connected.}
+    \unboldmath \\
+    \linebreak 
+    In order for a graph $G$ to be $k$-connected, it must have at least $k+1$ vertices and remain connected after removing $<k$ vertices. \\
+    \linebreak 
+    \textbf{Proof}\\
+    First, we can show that any two non-adjacent vertices, $a$ and $b$ have at least $k$ neighbours in common. That is, $|N(a) \cap N(b)| \geq k$. Assuming that the neighbourhoods of a vertex do not include the vertex itself, we know that $|N(a) \cup N(b)| \leq n-2$. We can rewrite $|N(a) \cup N(b)|$ as $|N(a)| + |N(b)| - |N(a) \cap N(b)|$. Therefore, \\
+    \begin{equation}
+       |N(a)| + |N(b)| - |N(a) \cap N(b)| \leq n-2
+    \end{equation}
+    Using the minimum degree requirement, we know that each neighbourhood has size $\geq \frac{n+k-2}{2}$. So, 
+    \begin{align*}
+        \frac{n+k-2}{2} + \frac{n+k-2}{2} - |N(a) \cap N(b)| \leq n-2 
+        \\
+        2 \cdot \frac{n+k-2}{2} - |N(a) \cap N(b)| \leq n-2
+    \end{align*}
+    %Let $G'$ be the graph $G$ after removing $k-1$ vertices. 
+    Finally, 
+    \begin{align*}
+        n + k - 2 - |N(a) \cap N(b)| &\leq n - 2 \\
+        -|N(a) \cap N(b)| &\leq - k \\
+        |N(a) \cap N(b)| &\geq k
+    \end{align*}
+    Then, let $G'$ be the result of removing $k-1$ vertices from $G$. If some $a$ and $b$ are adjacent then there is no problem. In the case that they are not, however, the graph remains connected since we know what we said above holds true for any two non-adjacent vertices $a, b$. So, we know that all pairs of vertices will still have $\geq 1$ neighbour in common, and so the graph remains connected. \qed 
+    % As  $N(a) + N(b) - N(a) \cap N(b)$ holds for any pair  of vertices $a, b$ we know that all pairs of vertices will still have $\geq 1$ neighbour in common, and so the graph remains connected. \qed 
+    \boldmath
+    \item \textbf{For each $k$, find an example of a graph $G_k$ with $|V(G)| = n \geq k + 1$ and $\delta(G) \geq \floor{\frac{n + k - 3}{2}}$ which is not $k$-connected. In other words, prove the minimum degree bound in $1(a)$ is the best possible.} \\
+    \unboldmath
+    \linebreak 
+    As $G$ is not $k$ connected, it must be $\leq k-1$ connected. We can show this using the same approach as above, we obtain: \\
+    \linebreak
+    \begin{align*}
+    n + k - 3 - |N(a) \cap N(b)| &\leq n - 2 \\ 
+    n + k - |N(a) \cap N(b)| &\leq n+1 \\
+    k - |N(a) \cap N(b)| &\leq 1 \\
+     - |N(a) \cap N(b)| &\leq 1 - k \\
+     |N(a) \cap N(b)| &\geq k - 1\\
+    \end{align*} 
+As the intersection of the neighbourhoods is $\geq k-1$, we know that it is only guaranteed that the graph is $k-1$-connected. \qed 
+\end{enumerate}

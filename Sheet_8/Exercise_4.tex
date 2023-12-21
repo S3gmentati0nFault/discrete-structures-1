@@ -1,0 +1,16 @@
+\subsection*{Exercise 4}
+\textbf{Prove that a connected graph is $k$-edge-connected if and only if all its blocks are $k$-edge-connected.\\}
+\\\linebreak
+\textbf{($\Rightarrow$) A connected graph is $k$-edge-connected $\Rightarrow$ all of its blocks are $k$-edge-connected \\\linebreak Proof\\}
+\unboldmath
+Let's suppose we have a graph $G$ which is $k$-edge-connected by hypothesis, then there are $k$ edge-disjoint paths between any two vertices $u, v \in V(G)$.\\
+Therefore, if we consider any block $B$ in $G$, $\fa u, v \in V(B)$ we have $k$ edge-disjoint paths between the two vertices. This implies that, even if we remove $k - 1$ edges for any pair of vertices $u, v \in V(B)$ we will still have a $u - v$ path connecting them.\\\linebreak
+But that is the definition of $k$-edge-connectedness, thus every block is $k$-edge-connected if the graph in its totality is $k$-edge-connected.\qed\\\linebreak
+\boldmath
+\textbf{($\Leftarrow$) If all of its blocks are $k$-edge-connected, the graph $G$ is $k$-edge-connected\\\linebreak Proof\\}
+\unboldmath
+Let's suppose that our graph $G$ is composed by a set of blocks $B_1, \dots, B_h$, since each of them is $k$-edge-connected there are $k$ edge-disjoint paths between any two vertices inside the block.\\
+Since the graph is connected it's essentially going to be composed by the various blocks $B_1, \dots, B_h$, linked by one or more cut vertices.\\\linebreak
+Since every block is $k$-edge-connected, if we consider a generic block $B_i$, if we take a vertex $v \in B_i$, we will have $k$ different paths linking $v$ to one of the cut vertices associated to $B_i$, which we'll call $c_{ij}$.
+$c_{ij}$ links $B_i$ to at least one other block, we will consider just one for simplicity and we will call it $B_j$. Since we know that $B_j$ is a different block containing $c_{ij}$ and being $k$-edge connected, we can extend all of the paths $\{vP_lc_{ij}\}_{l \in \{1, \dots, k\}}$ adding the paths $\{c_{ij}Q_tw\}_{t \in \{1, \dots, k),\: r \in V(B_j)}$.\\\linebreak
+Because of how we are building this we will have $k$ edge-disjoint paths between any two vertices in the graph, thus the graph has to be $k$-edge-connected.\qed

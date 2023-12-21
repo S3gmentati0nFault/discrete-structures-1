@@ -1,0 +1,12 @@
+\subsection*{Exercise 5}
+\textbf{Let $H$ and $H'$ be two distinct maximal k-connected subgraphs of a graph $G$. Prove that they have at most $k - 1$ common vertices.\\\linebreak Proof\\}
+\unboldmath
+Suppose, for a contradiction, that $H$ and $H'$ share $>k-1$ vertices. A maximal $k$-connected subgraph is, by definition, not a strict subset of another subgraph. \\
+\linebreak 
+As both $H$ and $H'$ are maximally $k$-connected, we can remove $k-1$ vertices and both will still be connected, i.e. there remains a $u,v$ path $\forall \:\: u,v$ in $H$ and $H'$ respectively. \\
+\linebreak 
+As we have removed $k-1$ vertices, and we claim that we have $k$ common vertices, $H$ and $H'$ will still have 1 vertex in common. Therefore, $H \cup H'$, the resulting graph, is $k$-connected.\\
+\linebreak 
+However, as $H$ and $H'$ are distinct, $H \cup H'$ is strictly larger than $H$ or $H'$, contradicting the maximality of $H$ and $H'$. \\
+\linebreak 
+From this contradiction we know that two distinct maximal $k$-connected subgraphs of $G$ have at most $k-1$ vertices in common. \qed

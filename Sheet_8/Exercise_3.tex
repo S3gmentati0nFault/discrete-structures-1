@@ -1,0 +1,19 @@
+\subsection*{Exercise 3}
+\textbf{Let $G$ be a connected graph and let $B_1, \dots, B_k$ be its blocks. Show that $n(G) = 1 - k + \sum_{i \in [k]}n(B_i)$\\\linebreak Proof\\}
+\unboldmath
+Let $G$ be a connected graph, if we want to compute the number of vertices using the blocks $B_1, \dots, B_k$ that compose the graph itself we have to start from the following sum:
+\begin{equation*}
+    \sum_{i \in [k]}n(B_i)
+\end{equation*}
+When summing over all of the blocks we will be also considering the cut vertices connecting every block to the rest of the graph.\\\linebreak
+Every block must have at least one cut vertex (but cannot have two adjacent ones), due to how we are counting the vertices in the graph the result will be that we are counting the cut vertices multiple times, thus we need to remove the duplicates from the count.\\
+To do that we can use the following equation:
+\begin{equation*}
+    n_{repeated\_cut\_vertices} - n_{cut\_vertices}
+\end{equation*}
+Or we can reason in terms of blocks, since every block will be insisting on at least one cut vertex, we want to remove $k - 1$ duplicates from the count, that is because if I removed $k$ from the count I would also be removing one of the cut vertices which still needs to be considered, making the overall count off by one.\\\linebreak
+Thus the number of vertices can be expressed in function of the number of blocks as follows:
+\begin{equation*}
+    n(G) = \sum_{i \in [k]}n(B_i) - (k - 1)
+\end{equation*}
+And that is exactly what we wanted to show. \qed

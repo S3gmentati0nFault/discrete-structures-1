@@ -1,11 +1,9 @@
 import os
 
-def file_generator():
-    sheet = input("Input the number of the current sheet: ")
-    number_of_exercises = int(input("Input the number of exercises: "))
-    os.mkdir("Sheet_" + str(sheet))
+def file_generator(sheet, number_of_exercises):
+    os.mkdir("Sheet_" + sheet)
     for i in range(number_of_exercises):
-        with open("./Sheet_" + str(sheet) + "/Exercise_" + str(i + 1) + ".tex", "w") as file:
+        with open("./Sheet_" + sheet + "/Exercise_" + str(i + 1) + ".tex", "w") as file:
             if i + 1 == 1:
                 file.write("\section*{Sheet " + sheet + "}\n")
             file.write("\subsection*{Exercise " + str(i + 1) + "}")
@@ -46,5 +44,26 @@ def clean_up():
             if file_extention == ".dvi" or file_extention == ".synctex.gz":
                 os.remove(current_path)
                     
+print("Input a number for the option you are interested in:")
+print("\t- 1 - Clean the directory removing any compilation files")
+print("\t- 2 - Generate a new directory containing the necessary files to start working!")
+print("\t- 3 - Regenerate the index for the main.tex file")
 
-file_generator()
+i = 0
+
+while i < 1 or i > 3:
+    i = int(input("Input a choice: "))
+    match i:
+        case 1:
+            print("cleaning...")
+            clean_up()
+
+        case 2:
+            sheet = input("Input the number of the current sheet: ")
+            number_of_exercises = int(input("Input the number of exercises: "))
+            print("generating the new directory...")
+            file_generator(sheet, number_of_exercises)
+        
+        case 3:
+            print("regenerating the index...")
+            index_generator()
