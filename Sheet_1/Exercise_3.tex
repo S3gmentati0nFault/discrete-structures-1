@@ -1,16 +1,10 @@
 \subsection*{Exercise 3}
 \boldmath
-\textbf{Show that any graph $G$ contains a subgraph of minimun degree at least $\frac{d(G)}{2}$}\vspace{10pt}\\
+\textbf{Show that any graph $G$ contains a subgraph of minimun degree at least $\frac{d(G)}{2}$\\\linebreak 
+Proof\\}
 \unboldmath
-A subgraph of $G$ is, by definition, a graph built on top of a subset of the edges of $G$ and a subset of the vertices of $G$.\\
-I am not really interested in the structure of the graph I am starting to build upon, if the graph is composed just by vertices and there are no edges I think that picking one random vertex in the mix should do the trick and grant the property.\\
-In a broader an more generic scenario I will provide a proof by construction, the idea is the following:\\
-We start building a generic $G'$ graph which is a pair built this way:
-\begin{enumerate}
-    \item $V(G')$ - set of vertices that have nonzero degree.
-    \item $E(G')$ - $\emptyset$
-\end{enumerate}
-Now I will pick the vertex of minimum degree in $G$\footnote{\textbf{Side note}: if $\delta(G) < \floor{\frac{d(G)}{2}}$ I will simply ignore the vertex and pick another one as the "minimum degree node" for $G'$ so that I have enough edges to validate the minimum degree statement. The rest of the construction process stays the same.} and call it $w$ in $G'$, I then add $\floor{\frac{d(G)}{2}}$ edges taken from $G$ to $G'$, the idea is to make sure that $d(w) = \floor{\frac{d(G)}{2}}$.\\
-Now, to make sure that $d(w) = \delta(G')$ we want to add enough edges so that each vertex $v \neq w$ has $d(v) \geq \floor{\frac{d(G)}{2}}$, what's important for this constructive step is to make sure that vertex $w$ is left untouched.\\
-At the end of the second construction step we will have built a subgraph for $G$ with minimum degree $\delta(G') = \floor{\frac{d(G)}{2}}$.
-\vspace{2pt}\\\hspace*{2.5cm}$\square$
+For any graph $G$ we can always find a subgraph $H$ such that $\delta(H) \geq \frac{d(G)}{2}$. Infact by \textit{Proposition 1.5} we can grant that any graph $G$ with at least one edge has a subgraph $H$ with:
+\begin{equation*}
+    \delta(H) > \varepsilon(H) \geq \varepsilon(G)
+\end{equation*}
+In case $G$ contains less than one edge then we just have to take the whole $G$ to make the statement true.\qed
