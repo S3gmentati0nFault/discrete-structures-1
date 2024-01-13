@@ -1,0 +1,29 @@
+\subsection*{Exercise 4}
+\begin{enumerate}[label=\textbf{(\alph*)}]    
+    \boldmath
+    \item \textbf{Let $k \geq 2$. Suppose $G$ is a $k$-connected graph and $S \subseteq V(G)$ with $|S| = k$. Prove that there is a cycle in $G$ containing $S$.\\\linebreak Proof\\}
+    \unboldmath
+    We are going to prove the theorem by induction on the number of elements $k$ in $S$, let's suppose we have a $k$-connected graph $G$.\\
+    We will relabel $S$ as $S_k$ to show its dependence on $k$.\\\linebreak
+    \boldmath
+    \textbf{Base case, $k = 2$}\\
+    \unboldmath
+    In the base case $G$ is $2$ connected and $S$ consists of just two vertices. If we consider the two vertices $x, y \in V(S_2)$, we can state that, since $G$ is $2$-connected by hypothesis, by \textit{Corollary 3.9} it must contain $2$ internally vertex disjoint paths linking $x$ and $y$. That means that we have a cycle containing $S$.\\\linebreak
+    \boldmath
+    \textbf{Inductive case, $k > 2$}\\
+    \unboldmath
+    \textbf{Induction hypothesis:} Let's suppose that for a generic $k$ $G$ is $k$-connected and contains a cycle linking all of the vertices in $S_k$.\\
+    We will now prove that the statement holds true even for the case of $k + 1$, we know that $G$ is $k + 1$ connected and $S$ contains $k + 1$ vertices.\\
+    If we call $x \in S_k$ the vertex that is added to $S_k$ to arrive to $S_{k + 1}$, I can partition $S_{k + 1}$ into $S_k$ and $x$.\\
+    By Induction Hypothesis we know we have a cycle containing all of the vertices in $S_k$.\\
+    If we consider the two sets $\{x\}$ and $S_k$ we can say that there is no separator for the two of size smaller than $k + 1$, that is because $G$ is $k + 1$ connected and if there was such a separator the graph would be $l$ connected (with $l < k + 1$).\\
+    By \textit{Menger's theorem} we can say that there are $k + 1$ internally vertex disjoint paths between $\{x\}$ and $S_k$. Thus we will have $k + 1$ disjoint paths connecting $x$ with $S_k$. Therefore we can say that adding $yPx$ with $y \in S_k$ and $xQz$ with $z \in S_k$ is a way of extending the cycle thus creating a cycle that actually covers $S_{k + 1}$ in its entirety. But that proves the hypothesis.\\\linebreak
+    Thus having a $k$ connected graph and a subset $S$ of $V(G)$ of size $k$ we can always cover $S$ with a cycle in $G$.
+    
+    \boldmath
+    \item \textbf{For each $k \geq 2$, find a bipartite graph $G_k$ which is $k$-connected and such that there is a set of $k + 1$ vertices which are not contained in any cycle of $G_k$.} \\
+    \linebreak
+    \unboldmath
+    For a bipartite graph $G$ with bipartition $(A,B)$ we can find a counter–example. Take a complete bipartite
+    graph $K_{n,m}$ with $m > n$ and some subset $S \subseteq A$ of size $k+1$.  The size of the cycle is bounded by $n$. (We are not quite sure how to continue from here). 
+\end{enumerate}
