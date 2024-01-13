@@ -8,8 +8,8 @@ content.
 <h2>Work in progess: </h2>
 
 - [x] Exercise 1 sheet 1
-- [ ] Exercise 2 sheet 1
-- [ ] Exercise 3 sheet 1
+- [x] Exercise 2 sheet 1
+- [x] Exercise 3 sheet 1
 - [ ] Exercise 4 (B and C) sheet 1
 - [ ] Exercise 4 sheet 2
 - [ ] Exercise 3 sheet 3
