@@ -18,7 +18,7 @@ def index_generator():
     dirs.sort()
     print(dirs)
     sheet = 1
-    with open("main.tex", "a") as file:
+    with open("Exercises.tex", "a") as file:
         for path in dirs:
             count = 1
             print(path)

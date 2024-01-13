@@ -1,22 +1,23 @@
 \subsection*{Exercise 4}
 \boldmath
-\textbf{Show that every tree $T$ has at least $\Delta(T)$ leaves.}\\
+\textbf{Show that every tree $T$ has at least $\Delta(T)$ leaves.}\\\linebreak
 \unboldmath
-\linebreak
-Let's consider a generic tree $T$ with a vertex $v$ of maximum degree $\Delta T$, i.e. $d(v) = \Delta(T)$. \\
-\linebreak 
-We know that $\forall v \in V(T)$, $v$ is either a leaf vertex, or there exists a path to a leaf. We know this holds because of theorem 1.15:
+We can prove the statement by induction over the number of vertices $x$.\\\linebreak
+In the base case $x = 1$ we know that the number of leaves is just $1$ and the maximum degree $\Delta(T) = 1$.\\\linebreak
+Let's now suppose that the graph has number of vertices $x$ and the number of leaves is at least $\Delta(T)$, we want to prove that by adding a vertex the statement is still true.\\\linebreak
+If we call $M$ the set of vertices of maximum degree in $T$, there are only three ways for us to add a vertex $v$ to the tree:
 \begin{itemize}
-       \item There must be a (unique) path between any two nodes $u$ and $v$
-       \item The tree $T$ is minimally connected
-\end{itemize}
-If any of the above doesn't hold for any reason then we can't say that $T$ is a tree. 
-\\
-\linebreak 
-Therefore, we know that $\exists$ a path to as many leaves as there are neighbours $\in N_T(v)$. If that weren't true that would mean that one of the leaves in the tree is disconnected from $v$ and thus $T$ would not be a tree. We must finally show that each neighbour that is not a leaf has a path to a \textit{unique} leaf. \\
-\linebreak 
-We can prove this easily using a contradiction. Assume that for two vertices, $u, w \in N_T(v)$, there exists a path to the same vertex leaf $x$. As $x$ is a leaf, it has degree 1.
-\linebreak 
-So, the two paths $uPx$ and $wPx$ exist. We also know the following path exists: $uPw$, as $u$ and $w$ are neighbours of $v$. The concatenation of these paths, $uPw \cup wPx \cup xPu$ forms a cycle, as it starts and ends at the same vertex, which cannot hold as trees are by definition acylic.  \\
-\linebreak 
-By this contradiction, we know that any vertex is linked to as many unique leaves as the size of its neighbourhood. Therefore, any tree $T$ has at least $|N_T(v)| = d(v) = \Delta(T)$ leaves. $\hspace{10mm} \square$ 
+       \item $v \in N_T(M)$\footnote{we define $N_T(M)$ where $M$ is a set as $\{x \in V(T) \st \exists y \in M, (x, y) \in E(T)\}$}. In which case $\Delta_{x + 1}(T) = \Delta_{x}(T) + 1$ but we know by inductive hypothesis that:
+       \begin{equation*}
+              L_x(T) \geq \Delta_x(T)
+       \end{equation*}
+       Where $L_x(T)$ is the set of leaves for the tree with $x$ vertices. Because of what we said above we know that:
+       \begin{align*}
+              &L_{x + 1}(T) \geq \Delta_{x + 1}(T) \\
+              &L_x(T) + 1 \geq \Delta_x(T) + 1
+       \end{align*}
+       Which shows that the statement still holds.
+       \item $v \notin N_T(M)$ and we do not modify the structure of the tree, thus we are just adding a leaf and that, by induction hypothesis, means that the statement still holds.
+       \item We modify the structure of the tree, basically we are doing a subdivision of an edge, but that doesn't change the number of leaves in the tree, which in turn means that the statement still holds by induction hypothesis.
+\end{itemize} 
+Since independently from how we add a new vertex the statement will be true we just proved that the number of leaves in a tree will always be at least $\Delta(T)$.\qed
