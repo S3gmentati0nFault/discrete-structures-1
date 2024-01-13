@@ -11,7 +11,7 @@ content.
 - [x] Exercise 2 sheet 1
 - [x] Exercise 3 sheet 1
 - [ ] Exercise 4 (B and C) sheet 1
-- [ ] Exercise 4 sheet 2
+- [x] Exercise 4 sheet 2
 - [ ] Exercise 3 sheet 3
 - [ ] Exercise 4 sheet 3
 - [ ] Exercise 5 sheet 3
